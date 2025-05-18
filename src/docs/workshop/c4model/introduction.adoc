@@ -60,7 +60,7 @@ Rel(banking_system, mainframe, "Nutzt")
 
 === Level 2: Container-Diagramm
 
-Das *Container-Diagramm* zooms in das Softwaresystem und zeigt die Container (Anwendungen, Datenspeicher, Microservices), aus denen das System besteht.
+Das *Container-Diagramm* zoomt in das Softwaresystem und zeigt die Container (Anwendungen, Datenspeicher, Microservices), aus denen das System besteht.
 
 [plantuml,c4-container-example,svg]
 ....
@@ -101,7 +101,7 @@ Rel(api, email_system, "Sendet E-Mail über", "SMTP")
 
 === Level 3: Component-Diagramm
 
-Das *Component-Diagramm* zooms in einen einzelnen Container und zeigt die wichtigsten Komponenten, aus denen er besteht.
+Das *Component-Diagramm* zoomt in einen einzelnen Container und zeigt die wichtigsten Komponenten, aus denen er besteht.
 
 [plantuml,c4-component-example,svg]
 ....
@@ -138,7 +138,7 @@ Rel(accounts_controller, mainframe, "Ruft Kontodetails ab", "XML/HTTPS")
 
 === Level 4: Code-Diagramm
 
-Das *Code-Diagramm* zooms in eine Komponente und zeigt, wie sie implementiert wird, z.B. mit UML-Klassendiagrammen oder Ähnlichem.
+Das *Code-Diagramm* zoomt in eine Komponente und zeigt, wie sie implementiert wird, z.B. mit UML-Klassendiagrammen oder Ähnlichem.
 
 [plantuml,c4-code-example,svg]
 ....
