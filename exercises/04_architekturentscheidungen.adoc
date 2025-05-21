@@ -1,0 +1,132 @@
+= Übung 4: Architekturentscheidungen dokumentieren
+:toc:
+:icons: font
+:source-highlighter: highlight.js
+
+== Was du lernst
+* Architekturentscheidungen strukturiert dokumentieren
+* Pugh-Matrix für Entscheidungsfindung nutzen
+* ADRs ins arc42-Template integrieren
+
+== Beschreibung
+
+In dieser Übung lernst du, wie du Architekturentscheidungen (Architecture Decision Records, ADRs) strukturiert dokumentierst und in deine arc42-Dokumentation integrierst. Architekturentscheidungen sind ein wichtiger Bestandteil der Architekturdokumentation, da sie die Gründe für bestimmte Architekturansätze transparent machen und für zukünftige Teams nachvollziehbar halten.
+
+== Warum Architekturentscheidungen dokumentieren?
+
+* Nachvollziehbarkeit für zukünftige Teams und neue Teammitglieder
+* Vermeidung von wiederholten Diskussionen über bereits getroffene Entscheidungen
+* Verbesserung der Qualität von Entscheidungen durch strukturierten Prozess
+* Transparenz über Abwägungen und Alternativen
+* Identifikation von Risiken und technischen Schulden
+
+== Beispiel: ADR-Template für eine Datenbankauswahl
+
+[source,asciidoc]
+----
+== ADR-001: Auswahl der Datenbankarchitektur
+
+|===
+| Datum:    | 15.05.2025
+| Autoren:  | Workshop-Team
+| Status:   | Vorgeschlagen
+|===
+
+=== Problemstellung und Kontext
+
+Wir benötigen eine Datenbank für die Speicherung von Dokumentationsmetadaten und Versionshistorie.
+Die Datenbank muss skalierbar, wartbar und mit unseren bestehenden Systemen kompatibel sein.
+
+=== Alternativen-Bewertung (Pugh-Matrix)
+
+|===
+| Kriterium | Relationale DB (Baseline) | NoSQL Dokumenten-DB | Graph-DB
+| Leistung bei komplexen Abfragen | 0 | -1 | +1
+| Skalierbarkeit | 0 | +1 | 0
+| Wartbarkeit | 0 | 0 | -1
+| Team-Expertise | 0 | +1 | -1
+| Infrastruktur-Kosten | 0 | 0 | -1
+| *Gesamtpunktzahl* | 0 | +1 | -2
+|===
+
+=== Entscheidung
+
+Wir haben uns für eine dokumentenorientierte NoSQL-Datenbank (MongoDB) entschieden.
+
+=== Konsequenzen
+
+==== Positive Auswirkungen
+- Bessere Skalierbarkeit für wachsende Dokumentationsanforderungen
+- Flexibles Schema für unterschiedliche Dokumenttypen
+- Gute Integration mit JavaScript/Node.js
+
+==== Risiken
+- Komplexere Abfragen könnten langsamer sein als in einer relationalen DB
+- Mögliche Konsistenzprobleme bei verteilten Deployments
+
+==== Technische Schuld
+- Migration vorhandener Daten aus dem alten System
+- Entwicklung neuer Query-Patterns für komplexe Abfragen
+----
+
+== Pugh-Matrix erklärt
+
+Die Pugh-Matrix (auch Entscheidungsmatrix genannt) ist ein Tool zur strukturierten Bewertung von Alternativen:
+
+1. Definiere eine Baseline (üblicherweise die aktuelle Lösung oder die einfachste Alternative)
+2. Bewerte jede Alternative im Vergleich zur Baseline:
+   * `-1` = schlechter als die Baseline
+   * `0` = gleich wie die Baseline
+   * `+1` = besser als die Baseline
+3. Summiere die Punkte für jede Alternative
+4. Die Alternative mit der höchsten Punktzahl ist oft die beste Wahl
+
+== Deine Aufgabe
+
+1. Erstelle einen Ordner `src/docs/arc42/09_architecture_decisions/` falls nicht vorhanden
+2. Erstelle eine neue ADR-Datei für eine wichtige Architekturentscheidung deines Projekts
+   * z.B. Frontend-Framework, API-Design, Deployment-Strategie, Datenbankauswahl
+3. Nutze das vorgegebene ADR-Format mit Pugh-Matrix
+   * Definiere eine sinnvolle Problemstellung
+   * Wähle mindestens 3 Alternativen zur Bewertung
+   * Lege 4-5 relevante Bewertungskriterien fest
+   * Führe die Bewertung mit der Pugh-Matrix durch
+   * Dokumentiere die Entscheidung und ihre Konsequenzen
+4. Inkludiere die ADR in die Hauptdatei `src/docs/arc42/09_design_decisions.adoc`
+   * Nutze das `include`-Direktiv: `include::09_architecture_decisions/adr-001.adoc[]`
+5. Generiere HTML und prüfe deine ADR
+
+=== Mögliche Themen für ADRs
+
+* Wahl des Frontend-Frameworks (React vs. Angular vs. Vue)
+* Datenbankarchitektur (Relational vs. NoSQL vs. NewSQL)
+* API-Design (REST vs. GraphQL vs. gRPC)
+* Authentifizierung und Autorisierung (OAuth vs. JWT vs. SAML)
+* Deployment-Strategie (VMs vs. Kubernetes vs. Serverless)
+* Monitoring und Logging (ELK vs. Prometheus/Grafana vs. Cloud-Lösungen)
+* Microservices vs. Monolith
+* Event-Sourcing vs. traditionelles CRUD
+* Caching-Strategie
+
+== Status-Werte für ADRs
+
+ADRs durchlaufen typischerweise verschiedene Status:
+
+* `Vorgeschlagen` - Die Entscheidung wurde vorgeschlagen, aber noch nicht formal akzeptiert
+* `Akzeptiert` - Die Entscheidung wurde angenommen und wird umgesetzt
+* `Abgelehnt` - Die Entscheidung wurde verworfen
+* `Ersetzt` - Die Entscheidung wurde durch eine neuere ADR ersetzt
+* `Veraltet` - Die Entscheidung ist nicht mehr relevant
+
+== Bonusaufgabe
+Erstelle eine zweite ADR, die von der ersten abhängig ist, und stelle diese Abhängigkeit im Dokument dar. Zum Beispiel könnte nach der Entscheidung für MongoDB eine Entscheidung über die Caching-Strategie folgen, die auf dieser Datenbankwahl aufbaut.
+
+== Weiterführende Links
+
+* https://adr.github.io/[ADR GitHub Organization]
+* https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions[Ursprünglicher ADR-Blogpost von Michael Nygard]
+* https://docs.arc42.org/section-9/[arc42 Entwurfsentscheidungen]
+
+== Nächste Schritte
+
+Öffne die nächste Übung: `exercises/05_qualitaetsziele_szenarien.adoc`
