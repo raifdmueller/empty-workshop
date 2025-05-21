@@ -72,22 +72,6 @@ Wir öffnen die Datei `src/docs/arc42/index.adoc` und aktualisieren folgende Inh
 :experimental:
 :imagesdir: images
 
-// additional style for arc42 help callouts
-ifdef::basebackend-html[]
-++++
-<style>
-.arc42help {
-font-size:small;
-background-color: lightgray;
-padding: 3px;
-border: 1px solid black;
-border-radius: 4px;
-margin-bottom: 4px;
-}
-</style>
-++++
-endif::basebackend-html[]
-
 // horizontal line
 
 ***
