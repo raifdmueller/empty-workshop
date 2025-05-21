@@ -1,33 +1,83 @@
-== Empty Repository
+= AsciiDoc für Software-Architektur Workshop
+:toc:
+:icons: font
+:source-highlighter: highlight.js
 
-This is just an empty repository to play around with some Diagrams-as-Code tools.
+== Über diesen Workshop
 
-To open this repository in gitpod, just preface the URL with `gitpod.io#`.
+Dieser Workshop führt dich in die Dokumentation von Software-Architektur mit AsciiDoc und docToolchain ein. Du lernst, wie du das arc42-Template verwenden, Architekturdiagramme erstellen und Architekturentscheidungen dokumentieren kannst.
 
-Next, gitpod will start a web based visual studio instance with everything pre-installed.
+Die Übungen bauen aufeinander auf und vermitteln praktische Fähigkeiten für die Erstellung professioneller Architekturdokumentation.
 
-Open this `README.adoc` and press `Ctrl+k` then `v` to aktivate the AsciiDoc preview.
+== Voraussetzungen
 
-Now open xref:src/docs/diagrams-as-code.adoc[] and start hacking.
+* Grundlegende Kenntnisse in der Softwareentwicklung
+* Git-Grundlagen
+* Ein Texteditor mit AsciiDoc-Unterstützung (VSCode mit AsciiDoc-Plugin empfohlen)
 
-'''
+== Workshop-Struktur
 
-=== advanced
+Der Workshop ist in sechs Übungen gegliedert:
 
-To install _docToolchain_, switch to the terminal and run
+1. *Grundlagen-Setup und arc42-Template* - Einrichten der Umgebung und Kennenlernen des Templates
+2. *AsciiDoc-Basics mit arc42-Fokus* - Grundlegende Syntax für Architektur-Dokumentation
+3. *Diagramme mit PlantUML und C4* - Erstellung von Architekturdiagrammen als Code
+4. *Architekturentscheidungen dokumentieren* - Struktur und Dokumentation von ADRs
+5. *Qualitätsziele und Szenarien* - Definition und Dokumentation von Qualitätsanforderungen
+6. *Kollaboration und CI/CD-Integration* - Teamarbeit an der Architekturdokumentation
 
-[code, bash]
+Alle Übungen befinden sich im Ordner `exercises/`. Lösungsbeispiele findest du im Ordner `solutions/`.
+
+== Erste Schritte
+
+1. Stelle sicher, dass docToolchain installiert ist:
++
+[source,bash]
 ----
-curl -Lo dtcw doctoolchain.github.io/dtcw
+# Überprüfe, ob dtcw ausführbar ist
 chmod +x dtcw
-./dtcw install
+
+# Zeige verfügbare Aufgaben an
+./dtcw tasks --group doctoolchain
 ----
 
-To preview the files, start a small server from within the terminal:
+2. Öffne die erste Übung:
++
+[source]
+----
+exercises/01_grundlagen_setup.adoc
+----
 
-[code, bash]
+3. Folge den Anweisungen in jeder Übungsdatei
+
+== Nützliche Ressourcen
+
+* xref:references.adoc[] - Hilfreiche Links und Cheat-Sheets
+* xref:project-ideas.adoc[] - Ideen für Beispielprojekte, falls du kein eigenes Projekt hast
+
+== Für fortgeschrittene Teilnehmer
+
+Um docToolchain zu installieren, führe folgende Befehle aus:
+
+[source,bash]
+----
+curl -Lo dtcw https://doctoolchain.org/dtcw
+chmod +x dtcw
+./dtcw local install java
+./dtcw local install doctoolchain
+----
+
+Um eine HTML-Vorschau zu starten:
+
+[source,bash]
 ----
 python -m http.server 8000
 ----
 
-Gitpod will now ask you what to do with the opened port. Just click on "open in browser" and navigate through the `build` folder.
+Und navigiere dann zu `build/docs/html5`.
+
+== Über docToolchain
+
+docToolchain ist ein Open-Source-Tool zur Dokumentation als Code. Es nutzt das arc42-Template und AsciiDoc, um professionelle Architekturdokumentation zu erstellen.
+
+Mehr Informationen: https://doctoolchain.org
