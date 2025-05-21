@@ -1,7 +1,6 @@
 = Übung 6: Kollaboration und CI/CD-Integration
 :toc:
 :icons: font
-:source-highlighter: highlight.js
 
 == Was du lernst
 * Dokumentation für Teamarbeit strukturieren
