@@ -1,7 +1,6 @@
 = Übung 3: Diagramme mit PlantUML und C4
 :toc:
 :icons: font
-:source-highlighter: highlight.js
 
 == Was du lernst
 * PlantUML-Diagramme in arc42 integrieren
