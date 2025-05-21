@@ -1,0 +1,161 @@
+= Übung 5: Qualitätsziele und Szenarien
+:toc:
+:icons: font
+
+== Was du lernst
+* Qualitätsbaum nach ISO 25010 erstellen
+* Konkrete Qualitätsszenarien definieren
+* Qualitätsanforderungen mit Architekturentscheidungen verknüpfen
+
+== Beschreibung
+
+In dieser Übung lernst du, wie du Qualitätsziele systematisch definierst und durch konkrete Szenarien präzisierst. Qualitätsziele sind neben den funktionalen Anforderungen die wichtigsten Treiber für architektonische Entscheidungen. Gut definierte Qualitätsszenarien machen abstrakte Qualitätsziele messbar und überprüfbar.
+
+== ISO 25010 Qualitätsmodell
+
+Das ISO 25010 Modell definiert acht Hauptkategorien von Softwarequalität:
+
+1. *Funktionale Eignung* - Vollständigkeit, Korrektheit, Angemessenheit
+2. *Leistungseffizienz* - Zeitverhalten, Ressourcenverbrauch, Kapazität
+3. *Kompatibilität* - Koexistenz, Interoperabilität
+4. *Benutzbarkeit* - Erlernbarkeit, Bedienbarkeit, Fehlerrobustheit, Ästhetik
+5. *Zuverlässigkeit* - Reife, Verfügbarkeit, Fehlertoleranz, Wiederherstellbarkeit
+6. *Sicherheit* - Vertraulichkeit, Integrität, Nachweisbarkeit, Authentizität
+7. *Wartbarkeit* - Modularität, Wiederverwendbarkeit, Analysierbarkeit, Änderbarkeit, Testbarkeit
+8. *Übertragbarkeit* - Anpassbarkeit, Installierbarkeit, Austauschbarkeit
+
+== Beispiel: Qualitätsbaum
+
+[source,asciidoc]
+----
+=== Qualitätsbaum
+
+[plantuml,"quality-tree",png]
+----
+@startmindmap
+* Qualität
+** Wartbarkeit
+*** Änderbarkeit
+*** Testbarkeit
+** Benutzerfreundlichkeit
+*** Erlernbarkeit
+*** Bedienbarkeit
+** Zuverlässigkeit
+*** Verfügbarkeit
+*** Fehlertoleranz
+** Effizienz
+*** Antwortzeit
+*** Ressourcenverbrauch
+@endmindmap
+----
+----
+
+== Beispiel: Qualitätsszenarien
+
+Qualitätsszenarien konkretisieren Qualitätsziele und machen sie messbar. Ein gutes Qualitätsszenario enthält:
+
+* Qualitätsattribut (welcher Aspekt)
+* Auslöser (was passiert)
+* Umgebung (unter welchen Bedingungen)
+* Artefakt (welcher Teil des Systems)
+* Antwort (wie reagiert das System)
+* Messgröße (wie wird der Erfolg gemessen)
+
+[source,asciidoc]
+----
+=== Qualitätsszenarien
+
+==== Szenario 1: Schnelle Dokumentationsaktualisierung
+
+[cols="1,3"]
+|===
+| Qualitätsattribut | Wartbarkeit/Änderbarkeit
+| Auslöser | Ein Entwickler möchte technische Dokumentation aktualisieren
+| Umgebung | Während der aktiven Entwicklung
+| Artefakt | Architektur-Dokumentation
+| Antwort | Änderung kann parallel zum Code eingecheckt werden
+| Metrik | Update und Veröffentlichung in < 10 Minuten
+|===
+
+Diese Anforderung beeinflusste maßgeblich unsere Entscheidung für <<ADR-001,DocToolchain>>.
+
+==== Szenario 2: Systemverfügbarkeit bei hoher Last
+
+[cols="1,3"]
+|===
+| Qualitätsattribut | Zuverlässigkeit/Verfügbarkeit
+| Auslöser | Spitzenlasten von bis zu 5000 gleichzeitigen Benutzern
+| Umgebung | Produktionssystem während Marketingkampagne
+| Artefakt | Gesamtsystem
+| Antwort | System bleibt voll funktionsfähig
+| Metrik | Verfügbarkeit > 99.9%, Antwortzeit < 2 Sekunden
+|===
+
+Dieses Szenario führte zur Entscheidung für <<ADR-002,horizontale Skalierung>>.
+----
+
+== Deine Aufgabe
+
+1. Öffne die Datei `src/docs/arc42/10_quality_requirements.adoc`
+2. Erstelle einen Qualitätsbaum für dein Projekt
+   * Basiere ihn auf ISO 25010 oder einem anderen Qualitätsmodell
+   * Nutze PlantUML MindMap oder eine andere passende Darstellung
+   * Identifiziere 3-4 Hauptqualitätsziele und ihre Unterkategorien
+3. Definiere mindestens 4 konkrete Qualitätsszenarien
+   * Nutze die vorgeschlagene Tabellenstruktur
+   * Stelle sicher, dass jedes Szenario messbar ist
+   * Decke unterschiedliche Qualitätsattribute ab
+4. Priorisiere die Qualitätsszenarien
+   * Hohe Priorität (Muss erreicht werden)
+   * Mittlere Priorität (Sollte erreicht werden)
+   * Niedrige Priorität (Nice-to-have)
+5. Verbinde jedes Szenario mit den relevanten ADRs durch Querverweise
+6. Generiere HTML und prüfe deine Ergebnisse
+
+== Beispiele für Qualitätsszenarien
+
+=== Wartbarkeit/Änderbarkeit
+* Ein Entwickler kann eine neue Komponente hinzufügen, ohne bestehende Komponenten zu modifizieren
+* Nach einem Designfehler kann die Architektur in 2 Personentagen angepasst werden
+
+=== Leistungseffizienz
+* Das System verarbeitet 1000 Transaktionen pro Sekunde bei normaler Last
+* Die Antwortzeit für Suchanfragen beträgt maximal 500ms für 95% der Anfragen
+
+=== Sicherheit
+* Ein Angreifer, der unbefugten Zugriff erlangt, kann keine personenbezogenen Daten einsehen
+* Nach einem Sicherheitsvorfall kann das System in weniger als 30 Minuten wiederhergestellt werden
+
+=== Benutzbarkeit
+* Ein neuer Benutzer kann die Hauptfunktionen ohne Schulung innerhalb von 10 Minuten nutzen
+* Die Fehlerrate bei Dateneingabe sinkt durch Validierung auf unter 2%
+
+== Traceability-Matrix (Bonusaufgabe)
+
+Eine Traceability-Matrix zeigt, welche Architekturentscheidungen welche Qualitätsszenarien unterstützen:
+
+[source,asciidoc]
+----
+=== Traceability-Matrix
+
+[cols="1,4*^", options="header"]
+|===
+| ADR | Wartbarkeit | Verfügbarkeit | Sicherheit | Leistung
+| ADR-001: NoSQL Datenbank | ++ | + | o | ++
+| ADR-002: Microservices | ++ | + | + | -
+| ADR-003: JWT-Authentifizierung | o | o | ++ | +
+| ADR-004: React Frontend | + | o | o | +
+|===
+
+Legende: ++ stark positiv, + positiv, o neutral, - negativ, -- stark negativ
+----
+
+== Weiterführende Links
+
+* https://iso25000.com/index.php/en/iso-25000-standards/iso-25010[ISO 25010 Standard]
+* https://docs.arc42.org/section-10/[arc42 Qualitätsanforderungen]
+* https://www.infoq.com/articles/atam-quality-attributes/[ATAM - Architecture Tradeoff Analysis Method]
+
+== Nächste Schritte
+
+Öffne die nächste Übung: `exercises/06_kollaboration_cicd.adoc`

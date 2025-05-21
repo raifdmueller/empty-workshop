@@ -1,33 +1,71 @@
-== Empty Repository
+= AsciiDoc für Software-Architektur Workshop
+:toc:
+:icons: font
 
-This is just an empty repository to play around with some Diagrams-as-Code tools.
+== Über diesen Workshop
 
-To open this repository in gitpod, just preface the URL with `gitpod.io#`.
+Dieser Workshop führt dich in die Dokumentation von Software-Architektur mit AsciiDoc und docToolchain ein. Du lernst, wie du das arc42-Template verwenden, Architekturdiagramme erstellen und Architekturentscheidungen dokumentieren kannst.
 
-Next, gitpod will start a web based visual studio instance with everything pre-installed.
+Die Übungen bauen aufeinander auf und vermitteln praktische Fähigkeiten für die Erstellung professioneller Architekturdokumentation.
 
-Open this `README.adoc` and press `Ctrl+k` then `v` to aktivate the AsciiDoc preview.
+== Workshop starten mit GitHub Workspace
 
-Now open xref:src/docs/diagrams-as-code.adoc[] and start hacking.
+**Um diesen Workshop zu starten, öffne dieses Repository in einem GitHub Workspace:**
 
-'''
+1. Stelle sicher, dass du in GitHub eingeloggt bist
+2. Drücke auf `.` (Punkt) während du im Repository bist, oder ergänze `.dev` in der URL 
+   (z.B. `https://github.com/rdmueller/empty-workshop.git` -> `https://github.dev/rdmueller/empty-workshop.git`)
+3. GitHub startet einen Visual Studio Code Editor direkt im Browser
+4. Dieser Editor bietet vollständige Funktionalität, einschließlich AsciiDoc-Preview
+5. Um die AsciiDoc-Vorschau zu aktivieren, drücke `Ctrl+K` gefolgt von `V` (oder `Cmd+K, V` auf Mac)
 
-=== advanced
+Alle benötigten Tools wie docToolchain sind bereits vorinstalliert und einsatzbereit.
 
-To install _docToolchain_, switch to the terminal and run
+== Voraussetzungen
 
-[code, bash]
+* Grundlegende Kenntnisse in der Softwareentwicklung
+* Git-Grundlagen
+* Ein Texteditor mit AsciiDoc-Unterstützung (VSCode mit AsciiDoc-Plugin empfohlen)
+
+== Workshop-Struktur
+
+Der Workshop ist in sechs Übungen gegliedert:
+
+1. *Grundlagen-Setup und arc42-Template* - Einrichten der Umgebung und Kennenlernen des Templates
+2. *AsciiDoc-Basics mit arc42-Fokus* - Grundlegende Syntax für Architektur-Dokumentation
+3. *Diagramme mit PlantUML und C4* - Erstellung von Architekturdiagrammen als Code
+4. *Architekturentscheidungen dokumentieren* - Struktur und Dokumentation von ADRs
+5. *Qualitätsziele und Szenarien* - Definition und Dokumentation von Qualitätsanforderungen
+6. *Kollaboration und CI/CD-Integration* - Teamarbeit an der Architekturdokumentation
+
+Alle Übungen befinden sich im Ordner `exercises/`. Lösungsbeispiele findest du im Ordner `solutions/`.
+
+== Erste Schritte
+
+1. Stelle sicher, dass docToolchain funktioniert (es ist bereits vorinstalliert):
++
+[source,bash]
 ----
-curl -Lo dtcw doctoolchain.github.io/dtcw
-chmod +x dtcw
-./dtcw install
+# Zeige verfügbare Tasks an
+./dtcw tasks --group doctoolchain
 ----
 
-To preview the files, start a small server from within the terminal:
-
-[code, bash]
+2. Öffne die erste Übung:
++
+[source]
 ----
-python -m http.server 8000
+exercises/01_grundlagen_setup.adoc
 ----
 
-Gitpod will now ask you what to do with the opened port. Just click on "open in browser" and navigate through the `build` folder.
+3. Folge den Anweisungen in jeder Übungsdatei
+
+== Nützliche Ressourcen
+
+* xref:references.adoc[] - Hilfreiche Links und Cheat-Sheets
+* xref:project-ideas.adoc[] - Ideen für Beispielprojekte, falls du kein eigenes Projekt hast
+
+== Über docToolchain
+
+docToolchain ist ein Open-Source-Tool zur Dokumentation als Code. Es nutzt das arc42-Template und AsciiDoc, um professionelle Architekturdokumentation zu erstellen.
+
+Mehr Informationen: https://doctoolchain.org

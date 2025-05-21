@@ -1,0 +1,121 @@
+= Lösung: Übung 1 - Grundlagen-Setup und arc42-Template
+:toc:
+:icons: font
+
+Diese Datei enthält eine Beispiellösung für die erste Übung.
+
+== Schritt 1: Initialisierung
+
+Zuerst machen wir den docToolchain-Wrapper ausführbar:
+
+[source,bash]
+----
+chmod +x dtcw
+----
+
+Dann prüfen wir, welche Tasks verfügbar sind:
+
+[source,bash]
+----
+./dtcw tasks --group doctoolchain
+----
+
+== Schritt 2: arc42-Template herunterladen
+
+Wir laden das arc42-Template mit folgenden Befehlen herunter:
+
+[source,bash]
+----
+./dtcw downloadTemplate
+----
+
+Bei den Abfragen wählen wir:
+* Option 1 (arc42)
+* EN als Sprache
+* "plain" als Variante
+* "n" bei der Frage nach Antora
+
+== Schritt 3: HTML generieren
+
+Wir generieren eine HTML-Version des Templates mit folgendem Befehl:
+
+[source,bash]
+----
+./dtcw generateHTML
+----
+
+Die generierte HTML-Datei finden wir unter `build/docs/html5/arc42/index.html`.
+
+Zum Anzeigen der Datei starten wir einen lokalen HTTP-Server:
+
+[source,bash]
+----
+python -m http.server 8000
+----
+
+Und öffnen dann im Browser: http://localhost:8000/build/docs/html5/
+
+== Schritt 4: Dokumentation anpassen
+
+Wir öffnen die Datei `src/docs/arc42/index.adoc` und aktualisieren folgende Inhalte:
+
+[source,asciidoc]
+----
+= image:arc42-logo.png[arc42] DocHub: Documentation Management System
+// header
+:doctype: book
+:icons: font
+:sectnums:
+:toc: left
+:toclevels: 3
+:toc-title: Table of Contents
+:experimental:
+:imagesdir: images
+
+// horizontal line
+
+***
+
+Version 1.0, Mai 2025
+
+// numbering from here on
+:numbered:
+
+<<<<
+// 1. Einführung und Ziele
+include::01_introduction_and_goals.adoc[]
+
+<<<<
+// 2. Randbedingungen
+include::02_architecture_constraints.adoc[]
+
+// ... weitere Includes ...
+----
+
+== Schritt 5: HTML erneut generieren
+
+Wir generieren die HTML-Datei erneut und prüfen unsere Änderungen:
+
+[source,bash]
+----
+./dtcw generateHTML
+----
+
+== Bonusaufgabe: PDF generieren
+
+Wir generieren eine PDF-Version des Templates:
+
+[source,bash]
+----
+./dtcw generatePDF
+----
+
+Die generierte PDF-Datei finden wir unter `build/docs/pdf/`.
+
+== Fazit
+
+In dieser Übung haben wir:
+* docToolchain-Wrapper kennengelernt
+* arc42-Template heruntergeladen und angepasst
+* HTML- und PDF-Versionen der Dokumentation generiert
+* Grundlegende Struktur einer AsciiDoc-Datei verstanden

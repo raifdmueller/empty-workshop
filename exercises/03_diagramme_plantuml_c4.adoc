@@ -1,0 +1,158 @@
+= Übung 3: Diagramme mit PlantUML und C4
+:toc:
+:icons: font
+
+== Was du lernst
+* PlantUML-Diagramme in arc42 integrieren
+* C4-Modell für Architekturdiagramme
+* Kontext- und Container-Diagramme erstellen
+
+== Beschreibung
+
+In dieser Übung lernst du, wie du aussagekräftige Architekturdiagramme mit PlantUML und dem C4-Modell erstellst und in deine arc42-Dokumentation einbindest. Diagramme sind ein wesentlicher Bestandteil guter Architekturdokumentation und helfen dabei, komplexe Systeme verständlich darzustellen.
+
+== Das C4-Modell
+
+Das C4-Modell wurde von Simon Brown entwickelt und bietet einen hierarchischen Ansatz zur Visualisierung von Softwarearchitekturen mit vier Abstraktionsebenen:
+
+1. *Context* - Das Gesamtsystem und seine Beziehung zu Benutzern und externen Systemen
+2. *Container* - Die Hauptkomponenten des Systems (Anwendungen, Datenbanken, etc.)
+3. *Component* - Die Komponenten innerhalb eines Containers
+4. *Code* - Die Implementierungsdetails (Klassen, Funktionen, etc.)
+
+== Beispiel: Kontext-Diagramm mit PlantUML/C4
+
+[source,asciidoc]
+----
+[plantuml,"system-context-diagram",png]
+----
+!include <C4/C4_Context>
+
+title System Context Diagram for DocSystem
+
+Person(user, "Technical Writer", "Erstellt und pflegt technische Dokumentation")
+Person(developer, "Developer", "Entwickelt Software und aktualisiert Docs")
+
+System(docSystem, "Documentation System", "Ermöglicht die Verwaltung von Dokumentation als Code")
+
+System_Ext(vcs, "Version Control", "Speichert alle Dokument-Versionen")
+System_Ext(ci, "CI/CD Pipeline", "Automatisiert Builds und Veröffentlichungen")
+
+Rel(user, docSystem, "Erstellt und verwaltet Dokumente")
+Rel(developer, docSystem, "Aktualisiert technische Details")
+Rel(docSystem, vcs, "Speichert Versionen")
+Rel(docSystem, ci, "Triggert Builds")
+----
+----
+
+Das Ergebnis würde so aussehen:
+
+image::plantuml-context-example.png[Beispiel Kontext-Diagramm]
+
+== Beispiel: Container-Diagramm mit PlantUML/C4
+
+[source,asciidoc]
+----
+[plantuml,"container-diagram",png]
+----
+!include <C4/C4_Container>
+
+title Container Diagram for Documentation System
+
+Person(user, "Technical Writer", "Erstellt und pflegt technische Dokumentation")
+Person(developer, "Developer", "Entwickelt Software und aktualisiert Docs")
+
+System_Boundary(docSystem, "Documentation System") {
+    Container(webApp, "Web Application", "JavaScript, Angular", "Bietet Benutzeroberfläche für das Dokumentationssystem")
+    Container(api, "API Application", "Java, Spring Boot", "Stellt REST-API für die Dokumentationsverwaltung bereit")
+    Container(converter, "Doc Converter", "Python", "Konvertiert Dokumente in verschiedene Formate")
+    ContainerDb(db, "Database", "PostgreSQL", "Speichert Metadaten, Benutzer und Konfiguration")
+    Container(fileStore, "File Storage", "MinIO", "Speichert Dokumentdateien")
+}
+
+System_Ext(vcs, "Version Control", "Speichert alle Dokument-Versionen")
+System_Ext(ci, "CI/CD Pipeline", "Automatisiert Builds und Veröffentlichungen")
+
+Rel(user, webApp, "Nutzt", "HTTPS")
+Rel(developer, webApp, "Nutzt", "HTTPS")
+Rel(webApp, api, "API-Aufrufe", "JSON/HTTPS")
+Rel(api, converter, "Konvertierungsaufträge", "RPC")
+Rel(api, db, "Liest/Schreibt", "JDBC")
+Rel(api, fileStore, "Liest/Schreibt Dateien", "S3 API")
+Rel(api, vcs, "Commit/Push", "Git")
+Rel(api, ci, "Triggert Build", "Webhook")
+----
+----
+
+== Deine Aufgabe
+
+1. Öffne die Datei `src/docs/arc42/03_system_scope_and_context.adoc`
+2. Ergänze ein Kontext-Diagramm mit C4-Notation für dein Projekt
+   * Definiere mindestens 2 Personentypen
+   * Definiere mindestens 3 externe Systeme
+   * Stelle sinnvolle Beziehungen her
+3. Öffne die Datei `src/docs/arc42/05_building_block_view.adoc`
+4. Erstelle ein Container-Diagramm für dein System
+   * Zeige interne Container/Komponenten deines Systems
+   * Stelle Beziehungen zu externen Systemen und Personen her
+   * Verwende unterschiedliche Container-Typen (Webanwendung, API, Datenbank, etc.)
+5. Generiere HTML und prüfe deine Diagramme
+
+== Tipps zur PlantUML/C4-Syntax
+
+=== Personen definieren
+
+[source,plantuml]
+----
+Person(alias, "Label", "Optional Description")
+Person_Ext(alias, "Label", "Optional Description")
+----
+
+=== Systeme definieren
+
+[source,plantuml]
+----
+System(alias, "Label", "Optional Description")
+System_Ext(alias, "Label", "Optional Description")
+----
+
+=== Container definieren
+
+[source,plantuml]
+----
+Container(alias, "Label", "Technology", "Optional Description")
+ContainerDb(alias, "Label", "Technology", "Optional Description")
+----
+
+=== Beziehungen definieren
+
+[source,plantuml]
+----
+Rel(from, to, "Label", "Optional Technology")
+Rel_Back(from, to, "Label", "Optional Technology")
+Rel_Neighbor(from, to, "Label", "Optional Technology")
+----
+
+=== System-Grenzen definieren
+
+[source,plantuml]
+----
+System_Boundary(alias, "Label") {
+    // Container innerhalb des Systems
+}
+----
+
+== Bonusaufgabe
+Erstelle ein Component-Diagramm für einen der wichtigsten Container/Module deines Systems. Zeige die internen Komponenten, ihre Beziehungen und Verantwortlichkeiten.
+
+== Weiterführende Links
+
+* https://c4model.com/[C4 Model für Software-Architektur]
+* https://github.com/plantuml-stdlib/C4-PlantUML[C4-PlantUML Integration]
+* https://plantuml.com/[PlantUML Offizielle Website]
+* https://docs.arc42.org/section-3/[arc42 Kontext und Abgrenzung]
+* https://docs.arc42.org/section-5/[arc42 Bausteinsicht]
+
+== Nächste Schritte
+
+Öffne die nächste Übung: `exercises/04_architekturentscheidungen.adoc`

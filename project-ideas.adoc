@@ -1,0 +1,130 @@
+= Projektideen
+:toc:
+:icons: font
+
+Wenn du kein eigenes Projekt für die Workshop-Übungen hast, kannst du eine der folgenden Projektideen verwenden.
+
+== iSAQB BigSpender
+
+.Beschreibung
+Das BigSpender-Projekt ist ein Beispiel aus der iSAQB CPSA-Advanced-Prüfung und eignet sich hervorragend als Übungsprojekt.
+
+.Kontext
+Es handelt sich um ein Zahlungsabwicklungssystem, das mehrere Zahlungsmethoden unterstützt und international eingesetzt wird.
+
+.Hauptfunktionen
+* Verarbeitung von Online-Zahlungen (Kreditkarte, Überweisung, digitale Geldbörsen)
+* Transaktionsüberwachung und Betrugserkennung
+* Internationale Währungsunterstützung
+* Berichtswesen und Analytik
+
+.Technologie-Stack
+* Backend: Java mit Spring Boot
+* Datenbank: PostgreSQL
+* Messaging: Apache Kafka
+* Frontend: Angular
+* Infrastruktur: Kubernetes
+
+Weitere Informationen findest du in der [originalen Aufgabenbeschreibung](https://www.isaqb.org/wp-content/uploads/2021/07/cpsa-a-aufgabe-BigSpender-1.5.pdf).
+
+== DocHub: Dokumentations-Management-System
+
+.Beschreibung
+Ein zentrales System zur Verwaltung technischer Dokumentation für Software-Projekte. Unterstützt verschiedene Dokumentationsformate, Versionierung und automatische Generierung.
+
+.Hauptfunktionen
+* Repository für verschiedene Dokumentationstypen (Benutzerhandbücher, API-Dokumentation, Architektur)
+* Integration mit CI/CD-Pipelines
+* Automatisches Rendering mehrerer Ausgabeformate (HTML, PDF, EPUB)
+* Versionierung und Änderungsverfolgung
+* Kommentar- und Review-Funktionen
+
+.Technologie-Stack
+* Backend: Spring Boot (Java)
+* Frontend: React mit TypeScript
+* Datenbank: PostgreSQL
+* Speicherung: MinIO (S3-kompatibel)
+* CI/CD: GitHub Actions
+* Dokumentation: AsciiDoc mit docToolchain
+
+== TaskMaster: Projektmanagement-Tool
+
+.Beschreibung
+Eine Anwendung zur Verwaltung von Projekten, Aufgaben und Teams mit Fokus auf Einfachheit und Integration.
+
+.Hauptfunktionen
+* Projekt- und Aufgabenverwaltung (Kanban, Listen, Gantt-Charts)
+* Zeit- und Ressourcenplanung
+* Team-Kollaboration und Kommunikation
+* Dokumentenmanagement und Wissensdatenbank
+* Berichte und Dashboards
+
+.Technologie-Stack
+* Backend: Node.js mit Express
+* Frontend: Vue.js
+* Datenbank: MongoDB
+* Echtzeit-Kommunikation: WebSockets
+* Authentifizierung: OAuth 2.0
+* Container: Docker & Kubernetes
+
+== SmartHome Control Center
+
+.Beschreibung
+Eine zentrale Plattform zur Steuerung und Überwachung verschiedener Smart-Home-Geräte, unabhängig vom Hersteller.
+
+.Hauptfunktionen
+* Integration unterschiedlicher IoT-Geräte und Protokolle
+* Automatisierte Abläufe und Szenarien
+* Dashboards zur Visualisierung von Verbrauch und Status
+* Alarmierung und Benachrichtigungen
+* Mobile App und Sprachsteuerung
+
+.Technologie-Stack
+* Backend: Python mit FastAPI
+* Frontend: Angular
+* Datenbank: InfluxDB (Zeitreihendaten) und Redis (Caching)
+* Kommunikation: MQTT und REST
+* Edge Computing: Raspberry Pi als lokaler Hub
+* Containerisierung: Docker Compose
+
+== E-Learning Plattform
+
+.Beschreibung
+Eine modulare Lernplattform für die Erstellung, Verwaltung und Durchführung von Online-Kursen mit interaktiven Elementen.
+
+.Hauptfunktionen
+* Kursverwaltung und Lernpfade
+* Interaktive Inhalte (Videos, Quizze, Coding-Challenges)
+* Fortschrittsverfolgung und Zertifizierung
+* Soziale Funktionen (Diskussionen, Peer-Reviews)
+* Analysen und Lernfortschritt
+
+.Technologie-Stack
+* Backend: Django (Python)
+* Frontend: Next.js (React)
+* Datenbank: PostgreSQL
+* Suche: Elasticsearch
+* Medienverarbeitung: FFmpeg
+* Deployment: AWS
+* Authentifizierung: Keycloak
+
+== MicroStore: Microservices-E-Commerce-System
+
+.Beschreibung
+Ein modernes E-Commerce-System, das konsequent auf Microservices-Architektur setzt und damit hohe Skalierbarkeit und Flexibilität bietet.
+
+.Hauptfunktionen
+* Produktkatalog und Suche
+* Warenkorb und Bestellverwaltung
+* Zahlungs- und Versandintegration
+* Kundenverwaltung und Personalisierung
+* Reporting und Analytics
+
+.Technologie-Stack
+* Services: Spring Boot, Quarkus, Node.js (verschiedene Sprachen pro Service)
+* Frontend: Angular mit wiederverwendbaren Microfrontends
+* Datenbanken: Polyglot Persistence (PostgreSQL, MongoDB, Redis)
+* Service Mesh: Istio
+* API Gateway: Kong
+* Event Streaming: Kafka
+* Überwachung: Prometheus und Grafana
