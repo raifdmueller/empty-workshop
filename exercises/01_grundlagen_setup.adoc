@@ -1,0 +1,95 @@
+= Übung 1: Grundlagen-Setup und arc42-Template
+:toc:
+:icons: font
+:source-highlighter: highlight.js
+
+== Was du lernst
+* docToolchain-Wrapper verwenden
+* arc42-Template herunterladen und rendern
+* Basisstruktur einer AsciiDoc-Datei verstehen
+
+== Beschreibung
+
+In dieser ersten Übung wirst du mit docToolchain vertraut und erstellst deine erste arc42-Dokumentation. 
+Du wirst lernen, wie du das arc42-Template herunterlädst und es mit docToolchain renderst.
+
+== Beispiel: docToolchain initialisieren
+
+Der docToolchain-Wrapper `dtcw` ist bereits installiert. So kannst du verfügbare Aufgaben anzeigen:
+
+[source,bash]
+----
+# docToolchain-Wrapper ausführbar machen
+chmod +x dtcw
+
+# Verfügbare Aufgaben anzeigen
+./dtcw tasks --group doctoolchain
+----
+
+Beispiel für die Grundstruktur einer einfachen AsciiDoc-Datei:
+
+[source,asciidoc]
+----
+= Dokumententitel
+:toc:                   // Aktiviert das Inhaltsverzeichnis
+:icons: font           // Verwendet Font Icons
+:sectnums:             // Aktiviert Abschnittsnummerierung
+
+== Erster Abschnitt
+
+Dies ist ein Absatz im ersten Abschnitt.
+
+* Ein Listenpunkt
+* Noch ein Listenpunkt
+
+== Zweiter Abschnitt
+
+=== Unterabschnitt
+
+Ein Link zu einem anderen Abschnitt: <<Erster Abschnitt>>
+----
+
+== Deine Aufgabe
+
+1. Mache dich mit dem Repository vertraut
+2. Führe den docToolchain-Wrapper aus und lade das arc42-Template herunter:
+   * `./dtcw downloadTemplate`
+   * Wähle Option 1 (arc42)
+   * Wähle EN als Sprache
+   * Wähle "plain" als Variante
+   * Bei der Frage nach Antora, wähle "n" (nein)
+3. Generiere HTML aus dem Template:
+   * `./dtcw generateHTML`
+4. Öffne die generierte HTML-Datei aus dem build/docs/html5-Verzeichnis
+5. Öffne die Datei `src/docs/arc42/index.adoc` und passe den Titel an:
+   * Ändere den Titel zu einem aussagekräftigen Namen für dein Projekt
+   * Passe auch die Autoren und andere Metadaten an
+6. Generiere die HTML-Datei erneut und prüfe deine Änderung
+
+== Automatisierung des downloadTemplate-Befehls
+
+Für CI/CD-Pipelines oder zur Automatisierung kannst du den `downloadTemplate`-Befehl mit vordefinierten Antworten ausführen:
+
+[source,bash]
+----
+# Für Linux/macOS (Bash)
+echo -e "1\nEN\nplain\nn" | ./dtcw downloadTemplate
+
+# Für Windows (Command Prompt)
+(echo 1 & echo EN & echo plain & echo n) | .\dtcw.bat downloadTemplate
+
+# Für Windows (PowerShell)
+"1`nEN`nplain`nn" | .\dtcw.ps1 downloadTemplate
+----
+
+== Bonusaufgabe
+Generiere auch eine PDF-Version des Templates mit `./dtcw generatePDF`
+
+== Weiterführende Links
+
+* https://arc42.org/overview[arc42 Template Übersicht]
+* https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/[AsciiDoc Syntax Schnellreferenz]
+
+== Nächste Schritte
+
+Öffne die nächste Übung: `exercises/02_asciidoc_basics.adoc`
