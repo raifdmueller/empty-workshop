@@ -42,6 +42,5 @@
 
 == Weitere Ressourcen
 
-* https://docs-as-co.de/[Docs-as-Code Ressourcen]
 * https://asciidoctor.org/docs/asciidoctor-pdf/[PDF-Erzeugung mit Asciidoctor]
 * https://github.com/asciidoctor/asciidoctor-diagram[Asciidoctor Diagram Integration]
