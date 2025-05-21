@@ -104,3 +104,13 @@ Führe
     ./dtcw docker exportExcel
 
 aus und schau dir das Ergebnis unter `src/docs/excel` an.
+
+=== Verlinkungen
+
+Nimm Deine Architekturentscheidung und extrahiere die (Qualitäts-)Kriterien, Risiken und technische Schulen für die entsprechenden Kapitel.
+Verlinke die verschiedenen Elemente
+
+=== Konfiguration
+
+Schau in die docToolchainConfig.groovy und ändere den namen der Microsite und konfiguriere den Improve- und Edit-Link.
+
