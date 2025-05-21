@@ -89,6 +89,10 @@ Gehe nun in Kapitel 9 und inkludiere den ADR.
 Gehe in Kapitel 8 und füge das Bild `08-concepts-DE.drawio.png` ein.
 Öffne das Bild und modifiziere es leicht.
 
+=== Stakeholder-Doku
+
+Kopiere das `arc42.adoc` File und erzeuge damit ein neues Dokument, welches nur die Kapitel 1-3 enthält.
+
 === CI/CD
 
 Pushe Deine gemachten Änderungen in Deinen Fork.
@@ -114,3 +118,11 @@ Verlinke die verschiedenen Elemente
 
 Schau in die docToolchainConfig.groovy und ändere den namen der Microsite und konfiguriere den Improve- und Edit-Link.
 
+=== Anpassung der CI / des Themes
+
+https://doctoolchain.org/docToolchain/v2.0.x/020_tutorial/040_microsite/130_theming.html
+
+
+=== Arbeiten mit Confluence
+
+Schau Dir das Tutorial unter https://doctoolchain.org/docToolchain/v2.0.x/020_tutorial/070_publishToConfluence.html an.
