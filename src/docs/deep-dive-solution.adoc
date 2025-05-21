@@ -1,0 +1,827 @@
+= AsciiDoc Deep-Dive
+:toc: left
+:toclevels: 4
+:sectnums:
+:sectnumlevels: 4
+:icons: font
+:source-highlighter: highlight.js
+:experimental:
+:stem:
+
+This comprehensive guide demonstrates advanced AsciiDoc features to help you create rich, well-formatted documentation.
+
+[NOTE]
+Most Markdown formatting is also supported by AsciiDoc, with significant additional capabilities.
+
+== Text Formatting
+
+=== Basic Formatting
+
+A paragraph needs a blank line,
+otherwise it's not a paragraph.
+
+A line break can be forced with a + 
+"+" at the end of a line.
+
+=== Styles
+
+Various inline styles are available:
+
+* *bold* (`*bold*`)
+* _italic_ (`_italic_`)
+* `monotype` (```monotype```)
+* *_bold italic_* (`*_bold italic_*`)
+* #highlighted# (`#highlighted#`)
+* ^superscript^ (`^superscript^`) 
+* ~subscript~ (`~subscript~`)
+
+=== Character Replacements
+
+AsciiDoc automatically handles:
+
+* Typographic quotes: "curly quotes" (instead of "straight quotes")
+* Em dashes: -- produces --
+* Ellipses: ... produces ...
+* Arrows: -> produces -> and => produces =>
+
+=== Admonitions
+
+Admonitions draw attention to important information:
+
+NOTE: This is a note admonition.
+
+TIP: This is a tip admonition.
+
+IMPORTANT: This is an important admonition.
+
+WARNING: This is a warning admonition.
+
+CAUTION: This is a caution admonition.
+
+=== Block Quotes
+
+[quote, Albert Einstein]
+____
+Logic will get you from A to B. Imagination will take you everywhere.
+____
+
+// Block without attribution
+[quote]
+____
+This is a quoted block of text.
+It can span multiple lines.
+____
+
+=== Comments
+
+// This is a single line comment
+
+////
+This is a 
+multi-line
+comment
+////
+
+== Headers & Document Structure
+
+=== Header Levels
+
+The document header ("=") has special meaning (book title, cover).
+Therefore, all documents should begin with level 2 headers ("==").
+
+. "=" - Document title
+. "==" - Section level 1
+. "===" - Section level 2
+. "====" - Section level 3
+. "=====" - Section level 4
+. "======" - Section level 5
+
+=== Discrete Headers
+
+Sometimes you need a header that doesn't appear in the TOC:
+
+[discrete]
+==== This Header Doesn't Affect Document Structure
+
+Content continues normally...
+
+== Lists
+
+=== Unordered Lists
+
+* Level 1 item
+** Level 2 item
+*** Level 3 item
+**** Level 4 item
+***** Level 5 item
+
+=== Ordered Lists
+
+. First item
+.. First nested item
+... Deeper nested item
+. Second item
+. Third item
+
+// Starting at different number
+[start=5]
+. Fifth item
+. Sixth item
+
+=== Mixed Lists
+
+. First ordered item
+* Unordered subitem
+* Another unordered subitem
+. Second ordered item
+
+=== Checklist
+
+* [x] Completed item
+* [ ] Incomplete item
+* [x] Another completed item
+
+=== Description Lists
+
+CPU:: The brain of the computer
+RAM:: Volatile memory used for running programs
+SSD:: Fast storage device with no moving parts
+
+=== Complex List Content
+
+* First paragraph in list item.
++
+Second paragraph in list item.
++
+----
+Code block in list item
+----
++
+Last paragraph in list item.
+
+* Second list item
+
+== Links and Cross-References
+
+=== External Links
+
+* URLs are automatically detected: https://asciidoctor.org
+* Custom text: https://asciidoctor.org[Asciidoctor website]
+* With attributes: https://example.org[Example,role=external,window=_blank]
+
+=== Internal Cross-References
+
+[[target-id]]
+=== Reference Target Section
+
+This section has an ID that can be referenced.
+
+You can reference a <<target-id,specific section>> by its ID.
+
+You can also use automatic section references: <<Links and Cross-References>>.
+
+== Images
+
+=== Basic Images
+
+ifndef::imagesdir[:imagesdir: images]
+
+Image using the inline macro:
+
+image:dtc.png[]
+
+Or as a block element:
+
+image::dtc.png[A sample image,400,300,align=center]
+
+=== Image Attributes
+
+[.text-center]
+image::dtc.png[A sample image,width=50%,height=auto]
+
+=== Image Captions and IDs
+
+[[fig-sample]]
+.Sample Figure Caption
+image::dtc.png[]
+
+You can reference <<fig-sample>> in your text.
+
+=== SVG Images
+
+image::sample.svg[SVG Image,opts=interactive]
+
+== Tables
+
+=== Basic Tables
+
+|===
+|Header 1 |Header 2 |Header 3
+
+|Cell 1,1 
+|Cell 1,2 
+|Cell 1,3
+
+|Cell 2,1 
+|Cell 2,2 
+|Cell 2,3
+|===
+
+=== Table with Column Specifications
+
+[cols="1,2,3", options="header"]
+|===
+|Column 1 (10%)
+|Column 2 (20%)
+|Column 3 (30%)
+
+|Data
+|More data
+|Even more data
+|===
+
+=== Column and Row Spans
+
+[cols="1,2,1", options="header"]
+|===
+|Normal cell
+|Normal cell
+|Normal cell
+
+.2+|Row span
+|Normal cell
+|Normal cell
+
+|Normal cell
+2+|Column span
+|===
+
+=== Table Alignment
+
+[cols="^.^1,>.2,<.3", options="header"]
+|===
+|Centered
+|Right aligned
+|Left aligned
+
+|Data
+|Data
+|Data
+|===
+
+=== Advanced Table Formatting
+
+[cols="1a,1", options="header"]
+|===
+|AsciiDoc enabled column
+|Normal column
+
+a|
+* List item 1
+* List item 2
+
+[source,java]
+----
+public class Test {
+}
+----
+|Just plain text
+|===
+
+== Source Code Blocks
+
+=== Basic Code Block
+
+[source,java]
+----
+package com.example;
+
+/**
+ * Class documentation
+ */
+public class Test {
+    /**
+     * Main method
+     * @param args Command-line arguments
+     */
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
+----
+
+=== Syntax Highlighting with Line Numbers
+
+[source,python,linenums]
+----
+def factorial(n):
+    """Calculate factorial of n"""
+    if n <= 1:
+        return 1
+    else:
+        return n * factorial(n-1)
+        
+# Calculate factorial of 5
+result = factorial(5)
+print(f"5! = {result}")
+----
+
+=== Code with Callouts
+
+[source,java]
+----
+public class Test {
+    public static void main(String[] args) {
+        // Initialize counter
+        int count = 0; // <1>
+        
+        // Process arguments
+        for (String arg : args) { // <2>
+            System.out.println(arg);
+            count++; // <3>
+        }
+        
+        // Print summary
+        System.out.println("Total arguments: " + count); // <4>
+    }
+}
+----
+<1> Initialize the counter variable
+<2> Loop through each command-line argument
+<3> Increment counter for each argument
+<4> Display the total count
+
+=== Console Examples
+
+[source,console]
+----
+$ ls -la
+total 112
+drwxr-xr-x  15 user  staff   480 May 21 10:32 .
+drwxr-xr-x   3 user  staff    96 May 21 09:25 ..
+-rw-r--r--   1 user  staff  5429 May 21 10:32 README.adoc
+----
+
+== Diagrams
+
+AsciiDoc supports several diagram types through the asciidoctor-diagram extension.
+
+=== PlantUML Diagrams
+
+[plantuml,basic-sequence,svg]
+----
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+@enduml
+----
+
+==== Advanced PlantUML Sequence Diagram
+
+[plantuml,advanced-sequence,svg]
+----
+@startuml
+skinparam backgroundColor #EEEBDC
+skinparam handwritten true
+
+skinparam sequence {
+  ArrowColor DeepSkyBlue
+  ActorBorderColor DeepSkyBlue
+  LifeLineBorderColor blue
+  LifeLineBackgroundColor #A9DCDF
+  
+  ParticipantBorderColor DeepSkyBlue
+  ParticipantBackgroundColor DodgerBlue
+  ParticipantFontName Impact
+  ParticipantFontSize 17
+  ParticipantFontColor #A9DCDF
+  
+  ActorBackgroundColor aqua
+  ActorFontColor DeepSkyBlue
+  ActorFontSize 17
+  ActorFontName Aapex
+}
+
+actor User
+participant "First Class" as A
+participant "Second Class" as B
+participant "Last Class" as C
+
+User -> A: DoWork
+activate A
+
+A -> B: Create Request
+activate B
+
+B -> C: DoWork
+activate C
+C --> B: WorkDone
+destroy C
+
+B --> A: Request Created
+deactivate B
+
+A --> User: Done
+deactivate A
+@enduml
+----
+
+==== C4 Component Diagram
+
+[plantuml,c4-component,svg]
+----
+!include <C4/C4_Component>
+
+title Component diagram for Internet Banking System - API Application
+
+Container(spa, "Single Page Application", "javascript and angular", "Provides all the internet banking functionality to customers via their web browser.")
+Container(ma, "Mobile App", "Xamarin", "Provides a limited subset of the internet banking functionality to customers via their mobile device.")
+ContainerDb(db, "Database", "Relational Database Schema", "Stores user registration information, hashed authentication credentials, access logs, etc.")
+System_Ext(mbs, "Mainframe Banking System", "Stores all of the core banking information about customers, accounts, transactions, etc.")
+
+Container_Boundary(api, "API Application") {
+    Component(sign, "Sign In Controller", "MVC Rest Controller", "Allows users to sign in to the internet banking system")
+    Component(accounts, "Accounts Summary Controller", "MVC Rest Controller", "Provides customers with a summary of their bank accounts")
+    Component(security, "Security Component", "Spring Security", "Provides functionality related to signing in, changing passwords, etc.")
+    Component(mbsfacade, "Mainframe Banking System Facade", "Spring Component", "A facade onto the mainframe banking system.")
+
+    Rel(sign, security, "Uses")
+    Rel(accounts, mbsfacade, "Uses")
+    Rel(security, db, "Read & write to", "JDBC")
+    Rel(mbsfacade, mbs, "Uses", "XML/HTTPS")
+}
+
+Rel(spa, sign, "Uses", "JSON/HTTPS")
+Rel(spa, accounts, "Uses", "JSON/HTTPS")
+
+Rel(ma, sign, "Uses", "JSON/HTTPS")
+Rel(ma, accounts, "Uses", "JSON/HTTPS")
+@enduml
+----
+
+=== Mermaid Diagrams
+
+[mermaid]
+----
+graph TD
+  A[Start] --> B{Is it cool?}
+  B -->|Yes| C[OK]
+  C --> D[Rethink]
+  D --> B
+  B ---->|No| E[End]
+----
+
+=== Graphviz Diagrams
+
+[graphviz]
+----
+digraph G {
+  size ="4,4";
+  main [shape=box];
+  main -> parse [weight=8];
+  parse -> execute;
+  main -> init [style=dotted];
+  main -> cleanup;
+  execute -> { make_string; printf}
+  init -> make_string;
+  edge [color=red];
+  main -> printf [style=bold,label="100 times"];
+  make_string [label="make a string"];
+  node [shape=box,style=filled,color=".7 .3 1.0"];
+  execute -> compare;
+}
+----
+
+=== Kroki.io Integration
+
+:kroki-server-url: https://kroki.io
+
+[ditaa]
+----
++--------+   +-------+    +-------+
+|        | --+ ditaa +--> |       |
+|  Text  |   +-------+    |diagram|
+|Document|   |!magic!|    |       |
+|     {d}|   |       |    |       |
++---+----+   +-------+    +-------+
+    :                         ^
+    |       Lots of work      |
+    +-------------------------+
+----
+
+== Mathematical Notation
+
+AsciiDoc can display mathematical formulas using the STEM notation.
+
+=== Inline Math
+
+The formula stem:[E = mc^2] is famous.
+
+=== Block Math
+
+[stem]
+++++
+x = {-b \pm \sqrt{b^2-4ac} \over 2a}
+++++
+
+[stem]
+++++
+\begin{aligned}
+\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} & = \frac{4\pi}{c}\vec{\mathbf{j}} \\
+\nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
+\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
+\nabla \cdot \vec{\mathbf{B}} & = 0
+\end{aligned}
+++++
+
+== Modular Documentation
+
+=== Include Files
+
+AsciiDoc documents can include content from other files:
+
+// Include another file
+//include::chapter1.adoc[]
+
+// Include with level offset
+//include::chapter1.adoc[leveloffset=+1]
+
+// Include specific lines
+//include::file.adoc[lines=5..10]
+
+// Include tagged region
+//include::file.adoc[tag=section1]
+
+=== Document Sections
+
+Tag sections in your document for selective inclusion:
+
+// In source file
+// tag::section1[]
+This content belongs to section 1.
+// end::section1[]
+
+// tag::section2[]
+This content belongs to section 2.
+// end::section2[]
+
+=== Conditional Content
+
+.Conditional Inclusion Based on Attributes
+[source,asciidoc]
+----
+ifdef::env-github[]
+This content is only visible when rendered on GitHub.
+endif::[]
+
+ifndef::production[]
+This is a note that only appears in the draft version.
+endif::[]
+----
+
+== Sidebars and Blocks
+
+=== Sidebar Blocks
+
+.Sidebar Title
+****
+This is a sidebar block.
+It can contain any content.
+
+* Lists
+* Images
+* Code
+
+It's set apart from the main text.
+****
+
+=== Example Blocks
+
+.Example Title
+====
+This is an example block.
+====
+
+=== Open Blocks
+
+[.text-center]
+--
+This content is centered.
+
+image::dtc.png[width=50%]
+--
+
+=== Collapsible Blocks
+
+.Click to expand
+[%collapsible]
+====
+This content is initially hidden and can be expanded by clicking.
+
+* Item 1
+* Item 2
+* Item 3
+====
+
+=== Custom Blocks with Roles
+
+[.important.center]
+====
+This block has custom styling applied via roles.
+====
+
+== Advanced Tables
+
+=== CSV Data
+
+[%header,format=csv]
+|===
+Name,Age,Role
+Alice,30,Developer
+Bob,45,Manager
+Charlie,25,Designer
+|===
+
+=== Auto-width with Custom Column Styles
+
+[cols="a,m,s", options="header,autowidth"]
+|===
+|AsciiDoc Column
+|Monospace Column
+|Strong Column
+
+a|
+* Item 1
+* Item 2
+
+m|
+`console.log("Hello");`
+
+s|
+*Important text*
+|===
+
+=== Table Caption and Footnotes
+
+.Table with Footnotes
+[cols="1,1", options="header"]
+|===
+|Name
+|Description
+
+|AsciiDoc
+|A text document format footnote:[Created by Stuart Rackham]
+
+|Asciidoctor
+|An implementation of AsciiDoc footnote:[Written in Ruby]
+|===
+
+=== Data Table with Column Styles
+
+[cols="1h,>1,^1,<1", options="header"]
+|===
+|Header (Left-aligned)
+|Right-aligned
+|Center-aligned
+|Left-aligned
+
+|Row 1
+|Value 1
+|Value 2
+|Value 3
+
+|Row 2
+|Long Value 1
+|Long Value 2
+|Long Value 3
+|===
+
+== Document Structuring Best Practices
+
+=== Document Organization
+
+* Use consistent heading levels
+* Start with level 2 headings ("==")
+* Keep a logical flow to your content
+* Group related information into sections
+* Use includes for modular content
+
+=== Document Attributes
+
+Define document metadata and control behavior:
+
+[source,asciidoc]
+----
+= Document Title
+Author Name <author@example.com>
+v1.0, 2025-05-21
+:toc: left
+:sectnums:
+:icons: font
+:experimental:
+:source-highlighter: highlight.js
+:imagesdir: images
+----
+
+=== Cross-Reference Best Practices
+
+* Always provide explicit IDs for important sections
+* Use meaningful IDs (e.g., [[sec-architecture]] not [[s1]])
+* Reference sections by title when ID isn't needed
+* Keep a list of important anchors in your documentation
+
+=== Optimization Tips
+
+* Use document attributes to avoid repetition
+* Create reusable content snippets
+* Use includes rather than duplicating content
+* Leverage conditional inclusion for audience-specific content
+* Maintain a consistent style throughout documents
+
+== AsciiDoc Extensions and Macros
+
+=== Custom Attributes
+
+:company-name: ACME Corporation
+:version: 1.0.0
+
+This document is for {company-name} version {version}.
+
+=== UI Macros
+
+Press the btn:[Save] button and select menu:File[Export > PDF].
+
+Keyboard shortcut: kbd:[Ctrl+Alt+Delete]
+
+=== Footnotes
+
+This statement requires clarification.footnote:[This is a footnote explanation.]
+
+You can also use named footnotes.footnote:note1[This is a named footnote]
+
+And reuse them multiple times.footnote:note1[]
+
+=== Indexing Terms
+
+(((indexing, example)))
+(((term1, term2, term3)))
+
+This creates entries in the index.
+
+=== Custom Inline Macros
+
+// Defined in an extension
+This is a custom macro: pass:[<custom-element>content</custom-element>]
+
+=== Replacements
+
+The copyright symbol (C) and trademark symbol (TM) are automatically replaced.
+
+== Callouts and Annotations
+
+=== Multi-language Code Examples
+
+[source,javascript]
+----
+// This is JavaScript
+function factorial(n) {
+  if (n <= 1) return 1; // <1>
+  return n * factorial(n-1); // <2>
+}
+----
+<1> Base case for recursion
+<2> Recursive step
+
+[source,python]
+----
+# This is Python
+def factorial(n):
+    """Calculate factorial of n"""
+    if n <= 1:
+        return 1  # <1>
+    else:
+        return n * factorial(n-1)  # <2>
+----
+<1> Base case for recursion
+<2> Recursive step
+
+=== Multiple Callouts on a Single Line
+
+[source,java]
+----
+String text = "Hello, world!";  // <1> <2>
+----
+<1> Declare a string variable
+<2> Initialize with greeting
+
+=== Terminal Commands with Callouts
+
+[source,console]
+----
+$ ./dtcw local install doctoolchain  # <1>
+$ ./dtcw generateHTML  # <2>
+$ ./dtcw generatePDF  # <3>
+----
+<1> Install docToolchain locally
+<2> Generate HTML documentation
+<3> Generate PDF documentation
