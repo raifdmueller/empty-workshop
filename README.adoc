@@ -8,7 +8,18 @@ Dieser Workshop führt dich in die Dokumentation von Software-Architektur mit As
 
 Die Übungen bauen aufeinander auf und vermitteln praktische Fähigkeiten für die Erstellung professioneller Architekturdokumentation.
 
-Der Workshop findet in einem GitHub Workspace statt. Damit wird ein VS Code im Browser geöffnet, und du erhältst sofort Zugriff auf einen Editor mit AsciiDoc-Preview-Funktion.
+== Workshop starten mit GitHub Workspace
+
+**Um diesen Workshop zu starten, öffne dieses Repository in einem GitHub Workspace:**
+
+1. Stelle sicher, dass du in GitHub eingeloggt bist
+2. Drücke auf `.` (Punkt) während du im Repository bist, oder ergänze `.dev` in der URL 
+   (z.B. `https://github.com/rdmueller/empty-workshop.git` -> `https://github.dev/rdmueller/empty-workshop.git`)
+3. GitHub startet einen Visual Studio Code Editor direkt im Browser
+4. Dieser Editor bietet vollständige Funktionalität, einschließlich AsciiDoc-Preview
+5. Um die AsciiDoc-Vorschau zu aktivieren, drücke `Ctrl+K` gefolgt von `V` (oder `Cmd+K, V` auf Mac)
+
+Alle benötigten Tools wie docToolchain sind bereits vorinstalliert und einsatzbereit.
 
 == Voraussetzungen
 
