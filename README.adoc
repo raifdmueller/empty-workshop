@@ -1,3 +1,5 @@
+:icons: font
+
 == Doc-as-Code Workshop
 
 Dieses Readme führt durch eine Docs-as-Code Übung.
@@ -28,9 +30,77 @@ Um auf generierte Files im Browser aus dem Github Workspace zugreifen zu können
 python -m http.server 8000 &
 ----
 
+NOTE: lokal könnte man direkt das HTML-File aufrufen.
+Der Server ist ein Workaround für Github Workspaces.
+
 === arc42 Template initialisieren
 
-    ./dtcw docker installTemplate
+    ./dtcw docker downloadTemplate
 
 installiert das arc42-Template unter src/docs .
 Vorher wird docToolchain noch eine Standard-Konfiguration initialisieren.
+
+Führe
+
+    ./dtcw docker generateSite
+
+aus und schau Dir im Browser das Ergbnis im Build-Folder an. (build/microsite/output)
+
+=== Einfache AsciiDoc-Texte
+
+Suche das erste Kapitel des arc42-Templates (`01_introduction_and_goals.adoc`) und schreibe eine Einleitung mit mindestens:
+
+* zwei Absätzen
+* bold, kursiv und mono-Text
+* einem Link auf eine Website
+
+=== Tabellen
+
+Gehe in das zweite Kapitel und nenne ein paar Randbedingugen in einer Tabelle.
+Die Tabelle sollte eine ID, eine Kurzbezeichnung und eine Beschreibung enthalten.
+
+Achte darauf, dass die Spalten nur die notwendige Breite haben und die Überschrift fett formatiert ist.
+
+=== Einfaches Diagramm
+
+Gehe in Kapitel 6 und erstelle mit PlantUML ein einfache Sequenzdiagramm (User->Browser->Server->DB).
+
+* Kannst Du die Sequenzes aktivieren (activate)?
+* Kannst Du Kommentare für Verbindungen hinzufügen?
+
+=== Kontext Diagramm
+
+Gehe in Kapitel 3 und erzeuge ein einfache Kontext-Diagramm.
+
+* Kannst Du es im C4-Stil umsetzen?
+
+=== Docs-as-Code mit KI
+
+Wähle eine KI Deiner Wahl (z.B. https://chatgpt.com/ ohne Anmeldung oder https://chat.mistral.ai/chat mit Anmeldung) und kopiere den Prompt aus der Microsite unter Prompts-ADRs rein.
+
+Erstelle einen einfachen ADR.
+
+Erstelle in `src/docs/arc42/chapters` ein Verzeichnis `adrs` und füge den ADR in eine Datei wie `ADR001-titel.adoc` ein.
+
+Gehe nun in Kapitel 9 und inkludiere den ADR.
+
+=== Draw.io
+
+Gehe in Kapitel 8 und füge das Bild `08-concepts-DE.drawio.png` ein.
+Öffne das Bild und modifiziere es leicht.
+
+=== CI/CD
+
+Pushe Deine gemachten Änderungen in Deinen Fork.
+
+Kopiere aus https://github.com/docToolchain/ci-cd-demo/tree/main den github workflow, um Deine Architektur zu veröffentlichen.
+
+=== Excel
+
+Schau die in Github das https://github.com/docToolchain/empty-workshop/blob/docToolchain-ready/src/docs/Excel-Demo.xlsx[`src/docs/Excel-Demo.xlsx`] and (view raw).
+
+Führe
+
+    ./dtcw docker exportExcel
+
+aus und schau dir das Ergebnis unter `src/docs/excel` an.
