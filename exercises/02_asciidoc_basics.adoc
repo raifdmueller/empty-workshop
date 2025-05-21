@@ -1,7 +1,6 @@
 = Übung 2: AsciiDoc-Basics mit arc42-Fokus
 :toc:
 :icons: font
-:source-highlighter: highlight.js
 
 == Was du lernst
 * AsciiDoc-Syntax für Kapitelstruktur, Listen, Tabellen
