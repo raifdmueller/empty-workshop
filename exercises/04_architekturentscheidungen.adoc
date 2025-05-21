@@ -1,7 +1,6 @@
 = Übung 4: Architekturentscheidungen dokumentieren
 :toc:
 :icons: font
-:source-highlighter: highlight.js
 
 == Was du lernst
 * Architekturentscheidungen strukturiert dokumentieren
