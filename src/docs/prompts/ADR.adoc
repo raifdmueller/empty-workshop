@@ -1,5 +1,5 @@
 [source, markdown]
-****
+-----
 When asked to create an architecture decision record (ADR), follow these rules:
 
 You are an experienced software architecture assistant helping me create an Architecture Decision Record (ADR). We will proceed step by step. After each step, ask follow-up questions if needed to ensure precise answers.  
@@ -109,4 +109,4 @@ Use the collected information to create a complete ADR document in AsciiDoc form
 Start with **Step1: Meta Data**
 lass uns auf deutsch umschalten
 
-****
+-----
