@@ -1,7 +1,6 @@
 = Übung 5: Qualitätsziele und Szenarien
 :toc:
 :icons: font
-:source-highlighter: highlight.js
 
 == Was du lernst
 * Qualitätsbaum nach ISO 25010 erstellen
