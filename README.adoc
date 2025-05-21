@@ -1,33 +1,36 @@
-== Empty Repository
+== Doc-as-Code Workshop
 
-This is just an empty repository to play around with some Diagrams-as-Code tools.
+Dieses Readme führt durch eine Docs-as-Code Übung.
 
-To open this repository in gitpod, just preface the URL with `gitpod.io#`.
+=== DTCW
 
-Next, gitpod will start a web based visual studio instance with everything pre-installed.
-
-Open this `README.adoc` and press `Ctrl+k` then `v` to aktivate the AsciiDoc preview.
-
-Now open xref:src/docs/diagrams-as-code.adoc[] and start hacking.
-
-'''
-
-=== advanced
-
-To install _docToolchain_, switch to the terminal and run
+zuerst installieren wir den docToolchain-Wrapper in der Umgebung.
+Dazu müssen folgende Zeilen im Terminal eingegeben werden:
 
 [code, bash]
 ----
 curl -Lo dtcw doctoolchain.github.io/dtcw
 chmod +x dtcw
-./dtcw install
 ----
 
-To preview the files, start a small server from within the terminal:
+Wir werden mit der Docker-Version arbeiten.
+Deshalb ist kein
+
+    ./dtcw local install java
+    ./dtcw local install doctoolchain
+
+notwendig.
+
+Um auf generierte Files im Browser aus dem Github Workspace zugreifen zu können, starten wir einen static file server im Hintergrund:
 
 [code, bash]
 ----
-python -m http.server 8000
+python -m http.server 8000 &
 ----
 
-Gitpod will now ask you what to do with the opened port. Just click on "open in browser" and navigate through the `build` folder.
+=== arc42 Template initialisieren
+
+    ./dtcw docker installTemplate
+
+installiert das arc42-Template unter src/docs .
+Vorher wird docToolchain noch eine Standard-Konfiguration initialisieren.
