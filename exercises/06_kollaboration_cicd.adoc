@@ -1,0 +1,238 @@
+= Übung 6: Kollaboration und CI/CD-Integration
+:toc:
+:icons: font
+:source-highlighter: highlight.js
+
+== Was du lernst
+* Dokumentation für Teamarbeit strukturieren
+* Workflows für kollaborative Dokumentation definieren
+* CI/CD-Integration für automatisierte Dokumentations-Builds
+
+== Beschreibung
+
+In dieser Übung lernst du, wie du deine Architekturdokumentation effektiv im Team pflegen und durch automatisierte Prozesse aktuell halten kannst. Die Integration in CI/CD-Pipelines stellt sicher, dass deine Dokumentation stets auf dem neuesten Stand ist und mit jedem Release automatisch generiert wird.
+
+== Herausforderungen bei Teamarbeit an der Dokumentation
+
+Bei der kollaborativen Arbeit an Dokumentation treten oft folgende Herausforderungen auf:
+
+* Unklare Zuständigkeiten für verschiedene Dokumentationsteile
+* Inkonsistente Formatierung und Struktur
+* Veraltete Dokumentation, die nicht mit dem Code Schritt hält
+* Mangelnde Nachvollziehbarkeit von Änderungen
+* Schwierigkeiten bei Review-Prozessen
+
+== Bewährte Praktiken für kollaborative Dokumentation
+
+* *Klare Verantwortlichkeiten*: Definiere, wer für welche Teile der Dokumentation zuständig ist
+* *Docs-as-Code*: Behandle Dokumentation wie Code mit Versionierung und Reviews
+* *Automatisierte Builds*: Integriere Dokumentationsgenerierung in deine CI/CD-Pipeline
+* *Nachvollziehbarkeit*: Nutze aussagekräftige Commit-Messages und strukturierte Pull Requests
+* *Leitfäden und Vorlagen*: Stelle Dokumentationsrichtlinien bereit
+
+== Beispiel: GitHub-Workflow für Dokumentationsbuilds
+
+[source,yaml]
+----
+name: Build Documentation
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/docs/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'src/docs/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      
+      - name: Build Documentation
+        run: |
+          chmod +x dtcw
+          ./dtcw generateHTML
+          ./dtcw generatePDF
+      
+      - name: Upload HTML Documentation
+        uses: actions/upload-artifact@v3
+        with:
+          name: documentation-html
+          path: build/docs/html5
+          
+      - name: Upload PDF Documentation
+        uses: actions/upload-artifact@v3
+        with:
+          name: documentation-pdf
+          path: build/docs/pdf
+----
+
+== Workflow für Dokumentationsänderungen
+
+Ein typischer Workflow für Dokumentationsänderungen könnte so aussehen:
+
+1. Erstelle einen Feature-Branch für deine Änderungen
+2. Führe lokale Änderungen durch und prüfe die Vorschau
+3. Reiche einen Pull Request ein
+4. Warte auf Reviews und Feedback
+5. Führe notwendige Anpassungen durch
+6. Merge in den Hauptbranch nach Freigabe
+7. Automatischer Build und Deployment der Dokumentation
+
+== Deine Aufgabe
+
+1. Erstelle einen Workflow für dein Team:
+   * Definiere, wer welche Teile der Dokumentation pflegt (z.B. nach Fachgebieten oder Komponenten)
+   * Lege einen Review-Prozess für Dokumentationsänderungen fest
+   * Beschreibe, wie und wann Aktualisierungen stattfinden sollen
+   * Dokumentiere diese Regeln in `src/docs/arc42/12_glossary.adoc` oder einer separaten Datei
+
+2. Erstelle eine GitHub Action für automatisierte Builds:
+   * Erstelle den Ordner `.github/workflows/` falls nicht vorhanden
+   * Erstelle eine Datei `.github/workflows/build-docs.yml` mit einem Workflow, der:
+     - Bei Änderungen an Dokumentationsdateien ausgelöst wird
+     - docToolchain aufruft, um HTML und PDF zu generieren
+     - Die Ergebnisse als Artifacts speichert
+
+3. Erweitere deine Dokumentation um einen Abschnitt "Für Mitwirkende":
+   * Erstelle eine neue Datei `src/docs/contributing.adoc`
+   * Beschreibe den Prozess für Beiträge zur Dokumentation
+   * Lege Richtlinien für Formatierung und Stil fest
+   * Erkläre, wie man die Dokumentation lokal generiert und prüft
+   * Füge Informationen zu Werkzeugen und Plugins hinzu
+
+4. Generiere HTML und prüfe deine Ergebnisse
+
+== Beispiel für contributing.adoc
+
+[source,asciidoc]
+----
+= Mitwirken an der Dokumentation
+:toc:
+:icons: font
+
+== Einführung
+
+Dieses Dokument beschreibt, wie du zur Architekturdokumentation unseres Projekts beitragen kannst. 
+Wir nutzen Docs-as-Code mit AsciiDoc und docToolchain.
+
+== Voraussetzungen
+
+* Git installiert und konfiguriert
+* Java JDK 17 oder höher
+* Text-Editor mit AsciiDoc-Unterstützung (empfohlen: Visual Studio Code mit AsciiDoc-Plugin)
+
+== Workflow für Beiträge
+
+1. Forke das Repository (externe Mitwirkende) oder erstelle einen Branch (Team-Mitglieder)
+2. Führe Änderungen an den AsciiDoc-Dateien durch
+3. Generiere die Dokumentation lokal mit `./dtcw generateHTML` und prüfe das Ergebnis
+4. Committe deine Änderungen mit einer aussagekräftigen Commit-Message
+5. Erstelle einen Pull Request mit detaillierter Beschreibung deiner Änderungen
+
+== Richtlinien
+
+=== Struktur
+
+* Halte dich an die arc42-Struktur
+* Eine Datei pro arc42-Kapitel
+* Nutze eindeutige Abschnitts-IDs für Querverweise
+
+=== Formatierung
+
+* Nutze aussagekräftige Überschriften
+* Halte Sätze und Absätze kurz und prägnant
+* Verwende Listen für Aufzählungen
+* Nutze Tabellen für strukturierte Informationen
+* Vermeide Umgangssprache und Jargon
+
+=== Diagramme
+
+* Erstelle Diagramme mit PlantUML
+* Nutze C4-Modell für Architekturdiagramme
+* Halte Diagramme einfach und fokussiert
+* Stelle sicher, dass Diagramme einen klaren Zweck erfüllen
+
+== Lokale Vorschau
+
+So generierst du die Dokumentation lokal:
+
+[source,bash]
+----
+./dtcw generateHTML
+./dtcw generatePDF
+----
+
+Die generierte Dokumentation findest du in:
+* HTML: `build/docs/html5/`
+* PDF: `build/docs/pdf/`
+----
+
+== Beispiel für GitHub Pages Deployment
+
+Um deine Dokumentation auf GitHub Pages zu veröffentlichen, kannst du folgenden Workflow nutzen:
+
+[source,yaml]
+----
+name: Deploy Documentation to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/docs/**'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      
+      - name: Build Documentation
+        run: |
+          chmod +x dtcw
+          ./dtcw generateHTML
+      
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build/docs/html5
+          branch: gh-pages
+----
+
+== Bonusaufgabe
+Erstelle ein Deployment-Skript, das die generierte Dokumentation auf GitHub Pages oder einen anderen Hosting-Dienst veröffentlicht. Verwende den obigen Workflow als Vorlage und passe ihn an deine Bedürfnisse an.
+
+== Weiterführende Links
+
+* https://docs.github.com/en/actions[GitHub Actions Dokumentation]
+* https://docs.github.com/en/pages[GitHub Pages Dokumentation]
+* https://doctoolchain.org/docToolchain/v2.0.x/020_tutorial/030_createGithubRepo.html[docToolchain GitHub Integration]
+
+== Abschluss des Workshops
+
+Herzlichen Glückwunsch! Du hast alle sechs Übungen des Workshops abgeschlossen und kennst nun die grundlegenden Techniken zur Erstellung professioneller Architekturdokumentation mit AsciiDoc und arc42. 
+
+Um dein Wissen zu vertiefen, empfehlen wir:
+* Wende das Gelernte auf ein eigenes Projekt an
+* Experimentiere mit erweiterten Funktionen von docToolchain
+* Erkunde weitere Integration mit CI/CD-Tools
+* Beteilige dich an der docToolchain-Community
+
+Wir freuen uns über dein Feedback zum Workshop und wünschen dir viel Erfolg bei deinen zukünftigen Dokumentationsprojekten!
