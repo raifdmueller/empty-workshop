@@ -1,0 +1,136 @@
+= Übung 2: AsciiDoc-Basics mit arc42-Fokus
+:toc:
+:icons: font
+:source-highlighter: highlight.js
+
+== Was du lernst
+* AsciiDoc-Syntax für Kapitelstruktur, Listen, Tabellen
+* arc42-Abschnitte mit Inhalt füllen
+* Querverweise zwischen arc42-Abschnitten erstellen
+
+== Beschreibung
+
+In dieser Übung lernst du, wie du AsciiDoc-Syntax für die Erstellung von Architekturdokumentation im arc42-Format verwendest. Du wirst lernen, wie du die verschiedenen Elemente von AsciiDoc nutzt, um eine strukturierte und gut lesbare Dokumentation zu erstellen.
+
+== Beispiel: Kapitel 1 (Einführung) bearbeiten
+
+Hier ist ein Beispiel, wie du das Kapitel 1 (Einführung und Ziele) mit AsciiDoc gestalten kannst:
+
+[source,asciidoc]
+----
+== Einführung und Ziele
+
+=== Aufgabenstellung
+Unser System soll es ermöglichen, Dokumentation als Code zu behandeln und folgende Ziele zu erreichen:
+
+* Versionsverwaltung für Dokumentation
+* Automatisierte Builds der Dokumentation
+* Kollaborative Bearbeitung durch das Entwicklungsteam
+
+=== Qualitätsziele
+
+[cols="1,2,2", options="header"]
+|===
+| Priorität | Qualitätsziel | Motivation
+| 1 | Wartbarkeit | Dokumentation soll leicht zu aktualisieren sein
+| 2 | Aktualität | Dokumentation soll mit Code synchron bleiben
+| 3 | Zugänglichkeit | Für alle Stakeholder leicht auffindbar
+|===
+
+=== Stakeholder
+
+Siehe <<stakeholder>> für Details.
+----
+
+=== Weitere AsciiDoc-Elemente für die Architekturdokumentation
+
+==== Hervorhebungen
+
+[source,asciidoc]
+----
+*fett* für wichtige Begriffe
+_kursiv_ für Betonung
+`monospace` für Code oder technische Begriffe
+----
+
+==== Info-Blöcke
+
+[source,asciidoc]
+----
+[NOTE]
+====
+Dies ist ein Hinweis für den Leser.
+====
+
+[TIP]
+====
+Dies ist ein Tipp oder eine Best Practice.
+====
+
+[IMPORTANT]
+====
+Dies ist eine wichtige Information, die beachtet werden sollte.
+====
+
+[WARNING]
+====
+Dies ist eine Warnung vor möglichen Problemen.
+====
+
+[CAUTION]
+====
+Dies ist ein Hinweis auf besondere Vorsicht.
+====
+----
+
+==== Querverweise
+
+[source,asciidoc]
+----
+Siehe <<section-id>> für weitere Details.
+
+[[section-id]]
+=== Abschnittsüberschrift
+----
+
+== Deine Aufgabe
+
+1. Öffne die Datei `src/docs/arc42/01_introduction_and_goals.adoc`
+2. Fülle die Abschnitte mit Inhalt für ein fiktives Software-Projekt deiner Wahl
+   * Beschreibe die Aufgabenstellung des Projekts
+   * Definiere 3-5 Qualitätsziele
+   * Liste wichtige Stakeholder auf
+3. Erstelle eine aussagekräftige Tabelle für Qualitätsziele mit Prioritäten
+4. Füge mindestens vier Stakeholder hinzu (mit Rollen und Erwartungen)
+5. Erstelle einen Querverweis zu einem anderen Kapitel (z.B. zu Randbedingungen)
+6. Generiere HTML und überprüfe deine Änderungen
+
+=== Stakeholder-Tabelle Beispiel
+
+[source,asciidoc]
+----
+[cols="1,2,2", options="header"]
+|===
+| Rolle | Kontakt | Erwartungen
+| Produktmanager | Max Mustermann | Klare Darstellung der Systemfunktionen
+| Entwicklungsteam | Team Alpha | Technische Details und Begründungen
+| Support | Support-Abteilung | Betriebsaspekte und Fehlerbehebung
+| Endbenutzer | Fachabteilung | Einfaches Verständnis der Grundfunktionen
+|===
+----
+
+== Bonusaufgabe
+Nutze verschiedene AsciiDoc-Formatierungen wie:
+* Infoboxen (NOTE, TIP, IMPORTANT, WARNING, CAUTION)
+* Hervorhebungen (*fett*, _kursiv_, `Code`)
+* Quellcode-Blöcke mit Syntax-Highlighting
+* Nummerierte Listen für Prioritäten oder Prozessschritte
+
+== Weiterführende Links
+
+* https://docs.asciidoctor.org/asciidoc/latest/[AsciiDoc Dokumentation]
+* https://docs.arc42.org/section-1/[arc42 Einführung und Ziele]
+
+== Nächste Schritte
+
+Öffne die nächste Übung: `exercises/03_diagramme_plantuml_c4.adoc`
