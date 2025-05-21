@@ -1,7 +1,6 @@
 = Lösung: Übung 1 - Grundlagen-Setup und arc42-Template
 :toc:
 :icons: font
-:source-highlighter: highlight.js
 
 Diese Datei enthält eine Beispiellösung für die erste Übung.
 
@@ -14,7 +13,7 @@ Zuerst machen wir den docToolchain-Wrapper ausführbar:
 chmod +x dtcw
 ----
 
-Dann prüfen wir, welche Aufgaben verfügbar sind:
+Dann prüfen wir, welche Tasks verfügbar sind:
 
 [source,bash]
 ----
@@ -36,13 +35,6 @@ Bei den Abfragen wählen wir:
 * "plain" als Variante
 * "n" bei der Frage nach Antora
 
-Alternativ können wir den Befehl auch automatisieren:
-
-[source,bash]
-----
-echo -e "1\nEN\nplain\nn" | ./dtcw downloadTemplate
-----
-
 == Schritt 3: HTML generieren
 
 Wir generieren eine HTML-Version des Templates mit folgendem Befehl:
@@ -53,6 +45,15 @@ Wir generieren eine HTML-Version des Templates mit folgendem Befehl:
 ----
 
 Die generierte HTML-Datei finden wir unter `build/docs/html5/arc42/index.html`.
+
+Zum Anzeigen der Datei starten wir einen lokalen HTTP-Server:
+
+[source,bash]
+----
+python -m http.server 8000
+----
+
+Und öffnen dann im Browser: http://localhost:8000/build/docs/html5/
 
 == Schritt 4: Dokumentation anpassen
 
@@ -70,11 +71,6 @@ Wir öffnen die Datei `src/docs/arc42/index.adoc` und aktualisieren folgende Inh
 :toc-title: Table of Contents
 :experimental:
 :imagesdir: images
-:tip-caption: 🚀
-:note-caption: ℹ️
-:important-caption: ⚠️
-:warning-caption: 🔥
-:caution-caption: 🔪
 
 // additional style for arc42 help callouts
 ifdef::basebackend-html[]
