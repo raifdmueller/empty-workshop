@@ -1,0 +1,47 @@
+= Nützliche Referenzen
+:toc:
+:icons: font
+
+== AsciiDoc Referenzen
+
+* https://docs.asciidoctor.org/asciidoc/latest/[Offizielle AsciiDoc Dokumentation]
+* https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/[AsciiDoc Syntax Quick Reference]
+* https://powerman.name/doc/asciidoc[AsciiDoc Cheatsheet]
+
+== PlantUML & Diagramm-Referenzen
+
+* https://plantuml.com/[PlantUML Offizielle Website]
+* https://c4model.com/[C4 Model für Software-Architektur]
+* https://github.com/plantuml-stdlib/C4-PlantUML[C4-PlantUML Integration]
+* https://kroki.io/[Kroki Diagramm-Rendering Service]
+
+== arc42 Referenzen
+
+* https://arc42.org/[arc42 Offizielle Website]
+* https://docs.arc42.org/home/[arc42 Dokumentation]
+* https://faq.arc42.org/home/[arc42 FAQ]
+* https://arc42.org/overview[arc42 Template Übersicht]
+
+== docToolchain Referenzen
+
+* https://doctoolchain.org/[docToolchain Offizielle Website]
+* https://doctoolchain.org/docToolchain/v2.0.x/[docToolchain Dokumentation]
+* https://github.com/docToolchain/docToolchain[docToolchain GitHub Repository]
+
+== Architektur-Dokumentation Best Practices
+
+* https://leanpub.com/arc42byexample[arc42 by Example (eBook)]
+* https://softwaredesign.remnote.io/[Software Architecture Playbook]
+* https://leanpub.com/arc42inpractice/[Communicating Software Architectures with arc42 (eBook)]
+
+== ADR (Architecture Decision Records)
+
+* https://adr.github.io/[ADR GitHub Organization]
+* https://github.com/joelparkerhenderson/architecture-decision-record[ADR Beispiele und Templates]
+* https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions[Ursprünglicher ADR-Blogpost von Michael Nygard]
+
+== Weitere Ressourcen
+
+* https://docs-as-co.de/[Docs-as-Code Ressourcen]
+* https://asciidoctor.org/docs/asciidoctor-pdf/[PDF-Erzeugung mit Asciidoctor]
+* https://github.com/asciidoctor/asciidoctor-diagram[Asciidoctor Diagram Integration]
