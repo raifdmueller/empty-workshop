@@ -1,13 +1,14 @@
 = AsciiDoc für Software-Architektur Workshop
 :toc:
 :icons: font
-:source-highlighter: highlight.js
 
 == Über diesen Workshop
 
 Dieser Workshop führt dich in die Dokumentation von Software-Architektur mit AsciiDoc und docToolchain ein. Du lernst, wie du das arc42-Template verwenden, Architekturdiagramme erstellen und Architekturentscheidungen dokumentieren kannst.
 
 Die Übungen bauen aufeinander auf und vermitteln praktische Fähigkeiten für die Erstellung professioneller Architekturdokumentation.
+
+Der Workshop findet in einem GitHub Workspace statt. Damit wird ein VS Code im Browser geöffnet, und du erhältst sofort Zugriff auf einen Editor mit AsciiDoc-Preview-Funktion.
 
 == Voraussetzungen
 
@@ -30,14 +31,11 @@ Alle Übungen befinden sich im Ordner `exercises/`. Lösungsbeispiele findest du
 
 == Erste Schritte
 
-1. Stelle sicher, dass docToolchain installiert ist:
+1. Stelle sicher, dass docToolchain funktioniert (es ist bereits vorinstalliert):
 +
 [source,bash]
 ----
-# Überprüfe, ob dtcw ausführbar ist
-chmod +x dtcw
-
-# Zeige verfügbare Aufgaben an
+# Zeige verfügbare Tasks an
 ./dtcw tasks --group doctoolchain
 ----
 
@@ -54,27 +52,6 @@ exercises/01_grundlagen_setup.adoc
 
 * xref:references.adoc[] - Hilfreiche Links und Cheat-Sheets
 * xref:project-ideas.adoc[] - Ideen für Beispielprojekte, falls du kein eigenes Projekt hast
-
-== Für fortgeschrittene Teilnehmer
-
-Um docToolchain zu installieren, führe folgende Befehle aus:
-
-[source,bash]
-----
-curl -Lo dtcw https://doctoolchain.org/dtcw
-chmod +x dtcw
-./dtcw local install java
-./dtcw local install doctoolchain
-----
-
-Um eine HTML-Vorschau zu starten:
-
-[source,bash]
-----
-python -m http.server 8000
-----
-
-Und navigiere dann zu `build/docs/html5`.
 
 == Über docToolchain
 
