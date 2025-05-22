@@ -1,0 +1,45 @@
+== ADR-042: Auswahl eines LLM-Chats für Architekturarbeit: OpenAI (ChatGPT)
+
+|===
+| Date:    h| 2025-05-22
+| Authors: h| Ralf D. Müller
+| Status:  h| Proposed
+|===
+
+=== Problem Description and Context
+
+Es soll ein LLM-Chat für Architekturarbeit eingesetzt werden. Es gibt keine spezifischen technischen oder organisatorischen Einschränkungen, und es gibt keine bestehenden Lösungen oder Systeme, die die Entscheidung beeinflussen.
+
+=== Alternative Evaluation (Pugh Matrix)
+
+|===
+| Kriterium | Baseline Solution (Mistral AI) | Alternative 1 (OpenAI) | Alternative 2 (Google) | Alternative 3 (Anthropic)
+| Kosten | 0 | -1 | -1 | -1
+| Performance | 0 | +1 | +1 | 0
+| Wartbarkeit | 0 | 0 | 0 | 0
+| Komplexität | 0 | 0 | 0 | 0
+| Human Eval Benchmark | 0 | +1 | +1 | +1
+| **Total Score** | 0 | +1 | +1 | 0
+|===
+
+=== Decision
+
+Basierend auf der Pugh-Matrix wird OpenAI (ChatGPT) gewählt, da es in den Kriterien Performance und Human Eval Benchmark besser abschneidet.
+
+=== Consequences
+
+==== Positive Effects
+
+- Verbesserte Performance und bessere Ergebnisse in Human Eval Benchmarks.
+
+==== Risks
+
+- Höhere Kosten im Vergleich zu Mistral AI.
+
+==== Technical Debt
+
+- Keine signifikanten technischen Schulden zu erwarten.
+
+=== Additional Information
+
+- Weitere Informationen zu den Alternativen können auf den jeweiligen Websites gefunden werden.

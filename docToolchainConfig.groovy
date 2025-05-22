@@ -26,6 +26,7 @@ inputFiles = [
         //[file: 'doctoolchain_demo.adoc',       formats: ['html','pdf']],
     //[file: 'arc42-template.adoc',    formats: ['html','pdf']],
 	[file: '01-arc42/arc42.adoc', formats: ['html','pdf']],
+	[file: '01-arc42/Fachlich.adoc', formats: ['html','pdf']],
 	/** inputFiles **/
 ]
 
