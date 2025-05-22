@@ -119,12 +119,12 @@ microsite.with {
     //
     // the url to create an issue in github
     // Example: https://github.com/docToolchain/docToolchain/issues/new
-    issueUrl = '##issue-url##'
+    issueUrl = 'https://github.com/docToolchain/empty-workshop/issues/new'
     //
     // the base url for code files in github
     // Example: https://github.com/doctoolchain/doctoolchain/edit/master/src/docs
     branch = System.getenv("DTC_PROJECT_BRANCH")?:'-'
-    gitRepoUrl = '##git-repo-url##'
+    gitRepoUrl = 'https://github.com/doctoolchain/empty-workshop/edit/workshop/src/docs'
 
     //
     // the location of the landing page
