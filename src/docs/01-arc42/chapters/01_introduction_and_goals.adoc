@@ -13,6 +13,8 @@ ifndef::imagesdir[:imagesdir: ../../images]
 [[section-introduction-and-goals]]
 ==	Einführung und Ziele
 
+Gerade geändert
+
 Erster Absatz.
 
 zweiter Absatz.
