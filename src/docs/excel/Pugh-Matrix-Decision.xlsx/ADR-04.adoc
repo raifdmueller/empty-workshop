@@ -1,0 +1,158 @@
+[options="header",cols="39,7,7,5,5,5,5,26"]
+|===
+8+^.>| ADR-04: Titel der Entscheidung
+
+| 
+| 
+| 
+5+.>| Reference
+{set:cellbgcolor:#a5a5a5}
+
+^.>| 
+{set:cellbgcolor!}
+.>| 
+^.>| 
+^.>| 
+{set:cellbgcolor:#a5a5a5}
+4+.>| Software as a Service
+{set:cellbgcolor:#70ad47}
+
+^.>| 
+{set:cellbgcolor!}
+.>| 
+^.>| 
+^.>| 
+{set:cellbgcolor:#a5a5a5}
+^.>| 
+{set:cellbgcolor:#70ad47}
+3+.>| Open-Source Software
+{set:cellbgcolor:#5b9bd5}
+
+^.>| 
+{set:cellbgcolor!}
+.>| 
+^.>| W
+^.>| 
+{set:cellbgcolor:#a5a5a5}
+^.>| 
+{set:cellbgcolor:#70ad47}
+^.>| 
+{set:cellbgcolor:#5b9bd5}
+2+.>| Eigenentwicklung
+{set:cellbgcolor:#ffc000}
+
+>.>| Verfügbarkeit
+{set:cellbgcolor:#ffffff}
+^.>| Q1
+{set:cellbgcolor!}
+^.>| 10
+^.>| 0
+{set:cellbgcolor:#a5a5a5}
+^.^| -1
+{set:cellbgcolor:#70ad47}
+^.^| 
+{set:cellbgcolor:#5b9bd5}
+^.^| 
+{set:cellbgcolor:#ffc000}
+.>| 
+{set:cellbgcolor!}
+
+>.>| Performance
+{set:cellbgcolor:#ffffff}
+^.>| Q2
+{set:cellbgcolor!}
+^.>| 10
+^.>| 0
+{set:cellbgcolor:#a5a5a5}
+^.^| 
+{set:cellbgcolor:#70ad47}
+^.^| 1
+{set:cellbgcolor:#5b9bd5}
+^.^| 
+{set:cellbgcolor:#ffc000}
+.>| 
+{set:cellbgcolor!}
+
+>.>| Anpassbarkeit
+{set:cellbgcolor:#ffffff}
+^.>| Q3
+{set:cellbgcolor!}
+^.>| 10
+^.>| 0
+{set:cellbgcolor:#a5a5a5}
+^.^| -1
+{set:cellbgcolor:#70ad47}
+^.^| -1
+{set:cellbgcolor:#5b9bd5}
+^.^| 1
+{set:cellbgcolor:#ffc000}
+.>| 
+{set:cellbgcolor!}
+
+>.>| Weiterentwickelbarkeit
+{set:cellbgcolor:#ffffff}
+^.>| Q4
+{set:cellbgcolor!}
+^.>| 10
+^.>| 0
+{set:cellbgcolor:#a5a5a5}
+^.^| -1
+{set:cellbgcolor:#70ad47}
+^.^| 1
+{set:cellbgcolor:#5b9bd5}
+^.^| 1
+{set:cellbgcolor:#ffc000}
+.>| 
+{set:cellbgcolor!}
+
+>.>| Vertraulichkeit
+{set:cellbgcolor:#ffffff}
+^.>| Q5
+{set:cellbgcolor!}
+^.>| 10
+^.>| 0
+{set:cellbgcolor:#a5a5a5}
+^.^| -1
+{set:cellbgcolor:#70ad47}
+^.^| 1
+{set:cellbgcolor:#5b9bd5}
+^.^| 
+{set:cellbgcolor:#ffc000}
+.>| 
+{set:cellbgcolor!}
+
+>.>| Datenintegrität
+{set:cellbgcolor:#ffffff}
+^.>| Q6
+{set:cellbgcolor!}
+^.>| 10
+^.>| 0
+{set:cellbgcolor:#a5a5a5}
+^.^| 
+{set:cellbgcolor:#70ad47}
+^.^| 1
+{set:cellbgcolor:#5b9bd5}
+^.^| 
+{set:cellbgcolor:#ffc000}
+.>| 
+{set:cellbgcolor!}
+
+| 
+| 
+| 
+^.>| 0
+^.>| -7
+^.>| 5
+^.>| 3
+| 
+
+| 
+| 
+| 
+^.>| 3
+^.>| 4
+^.>| 1
+^.>| 2
+| 
+
+|===

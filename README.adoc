@@ -119,7 +119,7 @@ Erstelle eine PowerPoint mit mindestens zwei Slides. Ergänze sie mit Speakernot
 
 === Verlinkungen
 
-Nimm Deine Architekturentscheidung und extrahiere die (Qualitäts-)Kriterien, Risiken und technische Schulen für die entsprechenden Kapitel.
+Nimm Deine Architekturentscheidung und extrahiere die (Qualitäts-)Kriterien, Risiken und technische Schulden für die entsprechenden Kapitel.
 Verlinke die verschiedenen Elemente
 
 === Konfiguration

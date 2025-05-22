@@ -13,6 +13,11 @@ ifndef::imagesdir[:imagesdir: ../../images]
 [[section-technical-risks]]
 == Risiken und technische Schulden
 
+[[R1-Kosten]]
+== R1 - Kosten
+
+Höhere Kosten im Vergleich zu Mistral AI.
+
 ifdef::arc42help[]
 [role="arc42help"]
 ****

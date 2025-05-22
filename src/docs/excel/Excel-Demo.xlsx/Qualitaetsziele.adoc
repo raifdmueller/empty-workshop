@@ -1,0 +1,35 @@
+[options="header",cols="34,66"]
+|===
+2+^.>| Top Qualitätsziele
+
+^.^| Ziel
+{set:cellbgcolor:#70ad47}
+^.^| Beschreibung
+{set:cellbgcolor:#70ad47}
+
+| Höchster Datenschutz
+{set:cellbgcolor:#ffffff}
+| Der Schutz der personenbezogenen Daten hat oberste Priorität. (Sicherheit)
+{set:cellbgcolor:#ffffff}
+
+| Effektive Warnfunktionalität
+{set:cellbgcolor:#ffffff}
+| Die App ist ein effektiver Baustein bei der Pandemie-Bekämpfung. (Funktionale Eignung)
+{set:cellbgcolor:#ffffff}
+
+| Attraktive Lösung für App-Nutzer
+{set:cellbgcolor:#ffffff}
+| Die App ist leicht zu installieren sowie intuitiv und effizient zu bedienen. (Benutzbarkeit)
+{set:cellbgcolor:#ffffff}
+
+| Hohe Zuverlässigkeit
+{set:cellbgcolor:#ffffff}
+| Die Lösung geht mit Lastspitzen wegen hoher Nutzer- oder Infektionszahlen ebenso souverän um, wie mit böswilligen Angriffen. (Zuverlässigkeit)
+{set:cellbgcolor:#ffffff}
+
+| Gute Änderbarkeit
+{set:cellbgcolor:#ffffff}
+| Die Software lässt sich leicht anpassen, wenn z. B. Nutzer/-innen oder neue Forschungsergebnisse es erfordern. (Wartbarkeit/Erweiterbarkeit)
+{set:cellbgcolor:#ffffff}
+
+|===

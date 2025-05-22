@@ -1,0 +1,138 @@
+[options="header",cols="33,6,4,4,4,21,15,15"]
+|===
+6+^.>| ADR-04: Titel der Entscheidung
+
+.>| 
+.>| 
+
+^.>| 
+.>| 
+4+.>| Software as a Service
+{set:cellbgcolor:#70ad47}
+
+| 
+| 
+
+^.>| 
+{set:cellbgcolor!}
+.>| 
+.2+.>| 
+{set:cellbgcolor:#70ad47}
+3+.>| Open-Source Software
+{set:cellbgcolor:#5b9bd5}
+
+| 
+| 
+
+^.>| 
+{set:cellbgcolor!}
+.>| 
+
+.>| 
+{set:cellbgcolor:#5b9bd5}
+2+.>| Eigenentwicklung
+{set:cellbgcolor:#ffc000}
+
+| 
+| 
+
+>.>| Verfügbarkeit
+{set:cellbgcolor:#ffffff}
+^.>| Q1
+{set:cellbgcolor!}
+^.^| -1
+{set:cellbgcolor:#70ad47}
+^.^| 
+{set:cellbgcolor:#5b9bd5}
+^.^| 
+{set:cellbgcolor:#ffc000}
+.>| 
+{set:cellbgcolor!}
+| 
+| 
+
+>.>| Performance
+{set:cellbgcolor:#ffffff}
+^.>| Q2
+{set:cellbgcolor!}
+^.^| 
+{set:cellbgcolor:#70ad47}
+^.^| 1
+{set:cellbgcolor:#5b9bd5}
+^.^| 
+{set:cellbgcolor:#ffc000}
+.>| 
+{set:cellbgcolor!}
+| 
+| 
+
+>.>| Anpassbarkeit
+{set:cellbgcolor:#ffffff}
+^.>| Q3
+{set:cellbgcolor!}
+^.^| -1
+{set:cellbgcolor:#70ad47}
+^.^| -1
+{set:cellbgcolor:#5b9bd5}
+^.^| 1
+{set:cellbgcolor:#ffc000}
+.>| 
+{set:cellbgcolor!}
+| 
+| 
+
+>.>| Weiterentwickelbarkeit
+{set:cellbgcolor:#ffffff}
+^.>| Q4
+{set:cellbgcolor!}
+^.^| -1
+{set:cellbgcolor:#70ad47}
+^.^| 1
+{set:cellbgcolor:#5b9bd5}
+^.^| 1
+{set:cellbgcolor:#ffc000}
+.>| 
+{set:cellbgcolor!}
+| 
+| 
+
+>.>| Vertraulichkeit
+{set:cellbgcolor:#ffffff}
+^.>| Q5
+{set:cellbgcolor!}
+^.^| -1
+{set:cellbgcolor:#70ad47}
+^.^| 1
+{set:cellbgcolor:#5b9bd5}
+^.^| 
+{set:cellbgcolor:#ffc000}
+.>| 
+{set:cellbgcolor!}
+| 
+| 
+
+>.>| Datenintegrität
+{set:cellbgcolor:#ffffff}
+^.>| Q6
+{set:cellbgcolor!}
+^.^| 
+{set:cellbgcolor:#70ad47}
+^.^| 1
+{set:cellbgcolor:#5b9bd5}
+^.^| 
+{set:cellbgcolor:#ffc000}
+.>| 
+{set:cellbgcolor!}
+| 
+| 
+
+| 
+| 
+.>| -4
+.>| 3
+.>| 2
+| 
+| 
+| 
+
+|===

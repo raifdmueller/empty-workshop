@@ -34,7 +34,8 @@ Basierend auf der Pugh-Matrix wird OpenAI (ChatGPT) gewählt, da es in den Krite
 
 ==== Risks
 
-- Höhere Kosten im Vergleich zu Mistral AI.
+<<R1-Kosten, R1: Kosten>>
+
 
 ==== Technical Debt
 
